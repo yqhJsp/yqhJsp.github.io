@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="一个热爱技术、安静、美腻的girl!!!">
-<meta name="keywords" content="傻里傻气、时而疯狂时而文静">
+<meta name="keywords" content="javascript ajax vue html css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="yqhJsp的个人博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -161,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">yang's Blog</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -219,6 +219,130 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/vue的混合注入mixins/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/01/vue的混合注入mixins/" itemprop="url">vue的混合注入mixins</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T14:32:09+08:00">
+                2019-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="vue的混合注入mixins的相关理解和使用"><a href="#vue的混合注入mixins的相关理解和使用" class="headerlink" title="vue的混合注入mixins的相关理解和使用"></a>vue的混合注入mixins的相关理解和使用</h3><p>1、mixins 选项接受一个混入对象的数组；</p>
+<p>2、这些混入实例对象可以像正常的实例对象一样包含选项，他们将在 Vue.extend() 里最终选择使用相同的选项合并逻辑合并。</p>
+<p>3、如果混入包含一个钩子而创建组件本身也有一个，那么这两个函数会同时被调用；</p>
+<p>4、Mixin 钩子按照传入顺序依次调用，并在调用组件自身的钩子之前被调用</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">子组件中导入</span><br><span class="line">import glMixin from <span class="string">'@/assets/js/global-mixin'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">	mixins: [glMixin, pageMixin]</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -343,6 +467,8 @@
 <h2 id="重点来了，在不同电脑管理hexo博客"><a href="#重点来了，在不同电脑管理hexo博客" class="headerlink" title="重点来了，在不同电脑管理hexo博客"></a>重点来了，在不同电脑管理hexo博客</h2><p>其实，这也是我在使用Hexo搭建博客遇到的一个问题，如果我们检查自己博客在Github上的文件就会发现，github仓库里的文件和我们本地博客站点的文件夹是不同的，确切来说是少了很多内容。如果我们想在不同的电脑上管理自己的博客，就必须有源文件存在远端供我们随时下载、然后修改后重新部署到远端。</p>
 <p>我们要理解这样一个过程：hexo -d是把本地博客源文件生成的静态网页文件同步到github上，实现部署。但是博客网站的源文件仍需要我们自己保存。这里主要有两种思路可以选择：</p>
 <p>1.在github存放我们博客静态网页文件的仓库里另建分支brach，单独用于存放源文件。</p>
+<p>(1)建立分支branch,切换到分支<br>(2)clone你的项目到你的Hexo目录下。例如我的是执行下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/yqhJsp/yqhJsp.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>(3)进入该分支,把源码coby到clone的项目里,然后提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/yqhJsp/yqhJsp.github.io.git</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">"hexo博客的源文件"</span></span><br><span class="line"></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
 <p>2.将本地博客文件存放在码云上。</p>
 <p>这些都是关于git的操作，所以这里不用细说了。单对于这两种方法来说，我更倾向于第二种。因为毕竟这些都是我们搭建个人博客的源文件，将来还要在网站上发表文章，很多数据都在这里。使用码云我们可以创建私有仓库，将这些源文件私有存放更好一些，而且源文件和静态博客网页文件分开存放也避免使用分支频繁切换。</p>
 <h2 id="七、遇到问题"><a href="#七、遇到问题" class="headerlink" title="七、遇到问题"></a>七、遇到问题</h2><p>1.修改了配置，网站没有变化</p>
@@ -699,7 +825,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

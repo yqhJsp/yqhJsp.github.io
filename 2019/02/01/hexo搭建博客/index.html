@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="搭建node.js环境(1)安装node.js(2)测试是否安装成功:node -v、npm -v 安装Hexo博客框架工具1npm install hexo-cli -g (注:若报错,请尝试在命令前加上sudo) 安装Git版本工具下载地址：https://git-scm.com/downloadsWindows系统需下载，Mac系统因为自带Git无需操作。测试安装：git - -versio">
-<meta name="keywords" content="傻里傻气、时而疯狂时而文静">
+<meta name="keywords" content="javascript ajax vue html css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo搭建博客">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/hexo搭建博客/index.html">
@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/01/hexo搭建博客/blog11.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/01/hexo搭建博客/blog12.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/01/hexo搭建博客/blog13.png">
-<meta property="og:updated_time" content="2019-02-01T06:17:15.781Z">
+<meta property="og:updated_time" content="2019-02-01T07:04:03.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo搭建博客">
 <meta name="twitter:description" content="搭建node.js环境(1)安装node.js(2)测试是否安装成功:node -v、npm -v 安装Hexo博客框架工具1npm install hexo-cli -g (注:若报错,请尝试在命令前加上sudo) 安装Git版本工具下载地址：https://git-scm.com/downloadsWindows系统需下载，Mac系统因为自带Git无需操作。测试安装：git - -versio">
@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">yang's Blog</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -353,6 +353,8 @@
 <h2 id="重点来了，在不同电脑管理hexo博客"><a href="#重点来了，在不同电脑管理hexo博客" class="headerlink" title="重点来了，在不同电脑管理hexo博客"></a>重点来了，在不同电脑管理hexo博客</h2><p>其实，这也是我在使用Hexo搭建博客遇到的一个问题，如果我们检查自己博客在Github上的文件就会发现，github仓库里的文件和我们本地博客站点的文件夹是不同的，确切来说是少了很多内容。如果我们想在不同的电脑上管理自己的博客，就必须有源文件存在远端供我们随时下载、然后修改后重新部署到远端。</p>
 <p>我们要理解这样一个过程：hexo -d是把本地博客源文件生成的静态网页文件同步到github上，实现部署。但是博客网站的源文件仍需要我们自己保存。这里主要有两种思路可以选择：</p>
 <p>1.在github存放我们博客静态网页文件的仓库里另建分支brach，单独用于存放源文件。</p>
+<p>(1)建立分支branch,切换到分支<br>(2)clone你的项目到你的Hexo目录下。例如我的是执行下面的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/yqhJsp/yqhJsp.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>(3)进入该分支,把源码coby到clone的项目里,然后提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/yqhJsp/yqhJsp.github.io.git</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">"hexo博客的源文件"</span></span><br><span class="line"></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
 <p>2.将本地博客文件存放在码云上。</p>
 <p>这些都是关于git的操作，所以这里不用细说了。单对于这两种方法来说，我更倾向于第二种。因为毕竟这些都是我们搭建个人博客的源文件，将来还要在网站上发表文章，很多数据都在这里。使用码云我们可以创建私有仓库，将这些源文件私有存放更好一些，而且源文件和静态博客网页文件分开存放也避免使用分支频繁切换。</p>
 <h2 id="七、遇到问题"><a href="#七、遇到问题" class="headerlink" title="七、遇到问题"></a>七、遇到问题</h2><p>1.修改了配置，网站没有变化</p>
@@ -392,6 +394,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/01/vue的混合注入mixins/" rel="prev" title="vue的混合注入mixins">
+                vue的混合注入mixins <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -468,7 +474,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

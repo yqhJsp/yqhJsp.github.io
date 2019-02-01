@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="substr 、substring 、slice的用法(1)substr获取从指定位置开始到指定字符数的字符; (2)substring返回一个从指定开始的索引到结束的索引的字符串; (3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。 1、slice去除指定位置的字符串或新增2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加c">
+<meta name="description" content="1、子组件向父组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
 <meta name="keywords" content="javascript ajax vue html css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript的常用截取字符串的函数">
-<meta property="og:url" content="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/index.html">
+<meta property="og:title" content="vue的组件的传值方式">
+<meta property="og:url" content="http://yoursite.com/2019/02/01/vue的组件的传值方式/index.html">
 <meta property="og:site_name" content="yqhJsp的个人博客">
-<meta property="og:description" content="substr 、substring 、slice的用法(1)substr获取从指定位置开始到指定字符数的字符; (2)substring返回一个从指定开始的索引到结束的索引的字符串; (3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。 1、slice去除指定位置的字符串或新增2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加c">
+<meta property="og:description" content="1、子组件向父组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-01T08:19:22.324Z">
+<meta property="og:updated_time" content="2019-02-01T08:42:34.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript的常用截取字符串的函数">
-<meta name="twitter:description" content="substr 、substring 、slice的用法(1)substr获取从指定位置开始到指定字符数的字符; (2)substring返回一个从指定开始的索引到结束的索引的字符串; (3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。 1、slice去除指定位置的字符串或新增2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加c">
+<meta name="twitter:title" content="vue的组件的传值方式">
+<meta name="twitter:description" content="1、子组件向父组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/01/vue的组件的传值方式/">
 
 
 
 
 
-  <title>javascript的常用截取字符串的函数 | yqhJsp的个人博客</title>
+  <title>vue的组件的传值方式 | yqhJsp的个人博客</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/vue的组件的传值方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yqh">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javascript的常用截取字符串的函数</h1>
+          <h1 class="post-title" itemprop="name headline">vue的组件的传值方式</h1>
         
 
         <div class="post-meta">
@@ -300,17 +300,16 @@
       
 
       
-        <h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p>
-<p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p>
-<p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p>
-<h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p>
-<p>其函数形式为：int ff(void)const;</p>
-<p>(2)const修饰函数的返回值，用于返回常量；</p>
-<p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p>
-<p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p>
-<p>int* const i=;  代表指针i是常量，所指的内容可以修改</p>
-<p>3、unshift倒叙排序<br>4、replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串。。为了帮助大家更好的理解，下面举个简单例子说明一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"中文 - 标题"</span>.replace(/[\u4e00-\u9fa5]+\s+\-\s+/,<span class="string">''</span>); </span><br><span class="line"></span><br><span class="line">console.log(s)</span><br></pre></td></tr></table></figure>
+        <h3 id="1、子组件向父组件传值"><a href="#1、子组件向父组件传值" class="headerlink" title="1、子组件向父组件传值"></a>1、子组件向父组件传值</h3><p>(1)父组件通过props传值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;gdp-analy :params=<span class="string">"params"</span>:rsEcoConstruct=<span class="string">"permiseMixin.rsEcoConstruct"</span> ref=<span class="string">"gdpAnaly"</span>&gt;&lt;/gdp-analy&gt;</span><br></pre></td></tr></table></figure></p>
+<p>(2)子组件接收父组件的参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">name: <span class="string">'fundTrade'</span>,</span><br><span class="line">components: &#123;&#125;,</span><br><span class="line">props: &#123;</span><br><span class="line">	params: Object,</span><br><span class="line">	rsEcoConstruct: &#123;</span><br><span class="line">			<span class="built_in">type</span>: String,</span><br><span class="line">			default: <span class="string">'false'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><a href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）" class="headerlink" title="2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）"></a>2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</h3><h3 id="二、父组件的事件触发响应子组件的请求"><a href="#二、父组件的事件触发响应子组件的请求" class="headerlink" title="二、父组件的事件触发响应子组件的请求"></a>二、父组件的事件触发响应子组件的请求</h3><p>(1)在子组件添加事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">pChangeType</span></span>() &#123;</span><br><span class="line">this.params.countType = this.<span class="variable">$parent</span>.countType</span><br><span class="line">this.getEch1()</span><br><span class="line">this.getTable1()</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2)在父组件的点击事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">changeData</span></span>()&#123;</span><br><span class="line">(1)//直接用<span class="variable">$parent</span>.xxx</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.pChangeType()</span><br></pre></td></tr></table></figure></p>
+<p>注意：用props传值,避免时间钩子问题，导致父组件还没渲染完，拿不到值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$nextTick</span>(() =&gt; &#123;</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.init()	</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、vue的兄弟组件件的通信"><a href="#三、vue的兄弟组件件的通信" class="headerlink" title="三、vue的兄弟组件件的通信"></a>三、vue的兄弟组件件的通信</h3><p>（1）eventBus(vue2.0s版本才有)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">步骤1：新建一个eventBus的js</span><br><span class="line">import Vue from <span class="string">'vue'</span>;</span><br><span class="line"><span class="built_in">export</span> default new Vue();</span><br><span class="line"></span><br><span class="line">在要使用eventBus的地方导入import Bus from <span class="string">'@/assets/js/eventBus'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤2：在要派发参数或事件的组件中用<span class="variable">$emit</span>绑定派发事件</span><br><span class="line">html:&lt;a class=<span class="string">"font-blue"</span> href=<span class="string">"javascript:;"</span> @click=<span class="string">"goCheck(item,0)"</span>&gt;查看&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">js:</span><br><span class="line">goCheck(item, index) &#123;</span><br><span class="line">Bus.<span class="variable">$emit</span>(<span class="string">'business-model-check'</span>, &#123; item, index &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤3：在兄弟组件中用<span class="variable">$on</span>监听是否有该事件</span><br><span class="line"><span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">this.init()</span><br><span class="line">Bus.<span class="variable">$on</span>(<span class="string">'business-model-check'</span>, params =&gt; &#123;</span><br><span class="line">this.getDetail(params)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -334,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/01/node连接数据库的操作/" rel="next" title="node连接数据库的操作">
-                <i class="fa fa-chevron-left"></i> node连接数据库的操作
+              <a href="/2019/02/01/vue的混合注入mixins/" rel="next" title="vue的混合注入mixins">
+                <i class="fa fa-chevron-left"></i> vue的混合注入mixins
               </a>
             
           </div>
@@ -344,8 +343,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/01/es6的常用函数/" rel="prev" title="es6的常用函数">
-                es6的常用函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/01/node连接数据库的操作/" rel="prev" title="node连接数据库的操作">
+                node连接数据库的操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -460,7 +459,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#substr-、substring-、slice的用法"><span class="nav-number">1.</span> <span class="nav-text">substr 、substring 、slice的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、slice去除指定位置的字符串或新增"><span class="nav-number">2.</span> <span class="nav-text">1、slice去除指定位置的字符串或新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><span class="nav-number">3.</span> <span class="nav-text">2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、子组件向父组件传值"><span class="nav-number">1.</span> <span class="nav-text">1、子组件向父组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><span class="nav-number">2.</span> <span class="nav-text">2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、父组件的事件触发响应子组件的请求"><span class="nav-number">3.</span> <span class="nav-text">二、父组件的事件触发响应子组件的请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、vue的兄弟组件件的通信"><span class="nav-number">4.</span> <span class="nav-text">三、vue的兄弟组件件的通信</span></a></li></ol></div>
             
 
           </div>

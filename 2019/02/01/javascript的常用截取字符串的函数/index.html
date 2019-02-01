@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="使用vue-scroll滚动条:###（1）在vue项目下安装vuescroll组件:    npm install vuescroll –save ###（2）局部引入: import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {    components: {        v">
+<meta name="description" content="substr 、substring 、slice的用法(1)substr获取从指定位置开始到指定字符数的字符; (2)substring返回一个从指定开始的索引到结束的索引的字符串; (3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。 1、slice去除指定位置的字符串或新增2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加c">
 <meta name="keywords" content="javascript ajax vue html css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue项目使用vuescroll滚动">
-<meta property="og:url" content="http://yoursite.com/2019/02/01/vue项目使用vuescroll滚动/index.html">
+<meta property="og:title" content="javascript的常用截取字符串的函数">
+<meta property="og:url" content="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/index.html">
 <meta property="og:site_name" content="yqhJsp的个人博客">
-<meta property="og:description" content="使用vue-scroll滚动条:###（1）在vue项目下安装vuescroll组件:    npm install vuescroll –save ###（2）局部引入: import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {    components: {        v">
+<meta property="og:description" content="substr 、substring 、slice的用法(1)substr获取从指定位置开始到指定字符数的字符; (2)substring返回一个从指定开始的索引到结束的索引的字符串; (3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。 1、slice去除指定位置的字符串或新增2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-01T06:15:56.451Z">
+<meta property="og:updated_time" content="2019-02-01T08:15:30.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue项目使用vuescroll滚动">
-<meta name="twitter:description" content="使用vue-scroll滚动条:###（1）在vue项目下安装vuescroll组件:    npm install vuescroll –save ###（2）局部引入: import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {    components: {        v">
+<meta name="twitter:title" content="javascript的常用截取字符串的函数">
+<meta name="twitter:description" content="substr 、substring 、slice的用法(1)substr获取从指定位置开始到指定字符数的字符; (2)substring返回一个从指定开始的索引到结束的索引的字符串; (3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。 1、slice去除指定位置的字符串或新增2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加c">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/01/vue项目使用vuescroll滚动/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
 
 
 
 
 
-  <title>vue项目使用vuescroll滚动 | yqhJsp的个人博客</title>
+  <title>javascript的常用截取字符串的函数 | yqhJsp的个人博客</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/vue项目使用vuescroll滚动/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yqh">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue项目使用vuescroll滚动</h1>
+          <h1 class="post-title" itemprop="name headline">javascript的常用截取字符串的函数</h1>
         
 
         <div class="post-meta">
@@ -262,7 +262,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T10:06:45+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
                 2019-02-01
               </time>
             
@@ -300,28 +300,15 @@
       
 
       
-        <h2 id="使用vue-scroll滚动条"><a href="#使用vue-scroll滚动条" class="headerlink" title="使用vue-scroll滚动条:"></a>使用vue-scroll滚动条:</h2><p>###（1）在vue项目下安装vuescroll组件:</p>
-<p>   npm install vuescroll –save</p>
-<p>###（2）局部引入:</p>
-<p>import vueScroll from ‘vuescroll’<br>import ‘vuescroll/dist/vuescroll.css’</p>
-<p>export default {<br>    components: {<br>        vueScroll<br>    },<br>    }</p>
-<h3 id="html"><a href="#html" class="headerlink" title="html:"></a>html:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;vue-scroll :ops=<span class="string">"ops"</span>&gt;</span><br><span class="line"> 你的内容</span><br><span class="line">&lt;/vue-scroll&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h3><pre><code>ops: {
-        rail: {
-            size: &apos;10px&apos;
-        },
-        bar: {
-            onlyShowBarOnScroll: true,
-            keepShow: false,
-            background: &apos;#c1c1c1&apos;,
-            opacity: 0.5,
-            hoverStyle: true,
-            specifyBorderRadius: false,
-            minSize: 0.3,
-            size: &apos;6px&apos;
-        }
-    }
-</code></pre><p>-end</p>
+        <h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p>
+<p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p>
+<p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p>
+<h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p>
+<p>其函数形式为：int ff(void)const;</p>
+<p>(2)const修饰函数的返回值，用于返回常量；</p>
+<p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p>
+<p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p>
+<p>int* const i=;  代表指针i是常量，所指的内容可以修改</p>
 
       
     </div>
@@ -346,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/01/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/02/01/node连接数据库的操作/" rel="next" title="node连接数据库的操作">
+                <i class="fa fa-chevron-left"></i> node连接数据库的操作
               </a>
             
           </div>
@@ -356,8 +343,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/01/hexo搭建博客/" rel="prev" title="hexo搭建博客">
-                hexo搭建博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/01/es6的常用函数/" rel="prev" title="es6的常用函数">
+                es6的常用函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,7 +459,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用vue-scroll滚动条"><span class="nav-number">1.</span> <span class="nav-text">使用vue-scroll滚动条:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html"><span class="nav-number">1.1.</span> <span class="nav-text">html:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.2.</span> <span class="nav-text">配置:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#substr-、substring-、slice的用法"><span class="nav-number">1.</span> <span class="nav-text">substr 、substring 、slice的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、slice去除指定位置的字符串或新增"><span class="nav-number">2.</span> <span class="nav-text">1、slice去除指定位置的字符串或新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><span class="nav-number">3.</span> <span class="nav-text">2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</span></a></li></ol></div>
             
 
           </div>

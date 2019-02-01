@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="date: 2019-02-01 10:06:45tags:-使用vue-scroll滚动条：-（1）在vue项目下安装vuescroll组件   npm install vuescroll –save -（2）局部引入 import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {">
+<meta name="description" content="##使用vue-scroll滚动条: ###（1）在vue项目下安装vuescroll组件:    npm install vuescroll –save ###（2）局部引入: import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {    components: {">
 <meta name="keywords" content="傻里傻气、时而疯狂时而文静">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue项目使用vuescroll滚动">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/vue项目使用vuescroll滚动/index.html">
 <meta property="og:site_name" content="yqhJsp的个人博客">
-<meta property="og:description" content="date: 2019-02-01 10:06:45tags:-使用vue-scroll滚动条：-（1）在vue项目下安装vuescroll组件   npm install vuescroll –save -（2）局部引入 import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {">
+<meta property="og:description" content="##使用vue-scroll滚动条: ###（1）在vue项目下安装vuescroll组件:    npm install vuescroll –save ###（2）局部引入: import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {    components: {">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-01T02:34:59.012Z">
+<meta property="og:updated_time" content="2019-02-01T03:06:28.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue项目使用vuescroll滚动">
-<meta name="twitter:description" content="date: 2019-02-01 10:06:45tags:-使用vue-scroll滚动条：-（1）在vue项目下安装vuescroll组件   npm install vuescroll –save -（2）局部引入 import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {">
+<meta name="twitter:description" content="##使用vue-scroll滚动条: ###（1）在vue项目下安装vuescroll组件:    npm install vuescroll –save ###（2）局部引入: import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {    components: {">
 
 
 
@@ -300,27 +300,29 @@
       
 
       
-        <p>date: 2019-02-01 10:06:45<br>tags:<br>-使用vue-scroll滚动条：<br>-（1）在vue项目下安装vuescroll组件<br>   npm install vuescroll –save</p>
-<p>-（2）局部引入<br> import vueScroll from ‘vuescroll’<br>import ‘vuescroll/dist/vuescroll.css’</p>
+        <p>##使用vue-scroll滚动条:</p>
+<p>###（1）在vue项目下安装vuescroll组件:</p>
+<p>   npm install vuescroll –save</p>
+<p>###（2）局部引入:</p>
+<p>import vueScroll from ‘vuescroll’<br>import ‘vuescroll/dist/vuescroll.css’</p>
 <p>export default {<br>    components: {<br>        vueScroll<br>    },<br>    }</p>
-<p>html:</p>
+<p>###html:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;vue-scroll :ops=<span class="string">"ops"</span>&gt;</span><br><span class="line"> 你的内容</span><br><span class="line">&lt;/vue-scroll&gt;</span><br></pre></td></tr></table></figure>
-<pre><code>配置:
-    ops: {
-            rail: {
-                size: &apos;10px&apos;
-            },
-            bar: {
-                onlyShowBarOnScroll: true,
-                keepShow: false,
-                background: &apos;#c1c1c1&apos;,
-                opacity: 0.5,
-                hoverStyle: true,
-                specifyBorderRadius: false,
-                minSize: 0.3,
-                size: &apos;6px&apos;
-            }
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置:"></a>配置:</h3><pre><code>ops: {
+        rail: {
+            size: &apos;10px&apos;
+        },
+        bar: {
+            onlyShowBarOnScroll: true,
+            keepShow: false,
+            background: &apos;#c1c1c1&apos;,
+            opacity: 0.5,
+            hoverStyle: true,
+            specifyBorderRadius: false,
+            minSize: 0.3,
+            size: &apos;6px&apos;
         }
+    }
 </code></pre><p>-end</p>
 
       
@@ -356,8 +358,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/01/使用Hexo搭建个人博客网站/" rel="prev" title="使用Hexo搭建个人博客网站">
-                使用Hexo搭建个人博客网站 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/01/hexo搭建博客/" rel="prev" title="hexo搭建博客">
+                hexo搭建博客 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -410,8 +412,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -453,6 +464,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

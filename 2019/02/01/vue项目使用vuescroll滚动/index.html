@@ -7,14 +7,17 @@
   
   <title>vue项目使用vuescroll滚动 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="date: 2019-02-01 10:06:45tags:-使用vue-scroll滚动条：-（1）在vue项目下安装vue-scroll组件   npm install vue-scroll –save -（2）局部引入 import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {">
+<meta property="og:type" content="article">
 <meta property="og:title" content="vue项目使用vuescroll滚动">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/vue项目使用vuescroll滚动/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="date: 2019-02-01 10:06:45tags:-使用vue-scroll滚动条：-（1）在vue项目下安装vue-scroll组件   npm install vue-scroll –save -（2）局部引入 import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-01T02:06:45.621Z">
+<meta property="og:updated_time" content="2019-02-01T02:09:10.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue项目使用vuescroll滚动">
+<meta name="twitter:description" content="date: 2019-02-01 10:06:45tags:-使用vue-scroll滚动条：-（1）在vue项目下安装vue-scroll组件   npm install vue-scroll –save -（2）局部引入 import vueScroll from ‘vuescroll’import ‘vuescroll/dist/vuescroll.css’ export default {">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,7 +67,7 @@
         <section id="main"><article id="post-vue项目使用vuescroll滚动" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/02/01/vue项目使用vuescroll滚动/" class="article-date">
-  <time datetime="2019-02-01T02:06:45.000Z" itemprop="datePublished">2019-02-01</time>
+  <time datetime="2019-02-01T02:06:45.619Z" itemprop="datePublished">2019-02-01</time>
 </a>
     
   </div>
@@ -83,11 +86,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>date: 2019-02-01 10:06:45<br>tags:<br>-使用vue-scroll滚动条：<br>-（1）在vue项目下安装vue-scroll组件<br>   npm install vue-scroll –save</p>
+<p>-（2）局部引入<br> import vueScroll from ‘vuescroll’<br>import ‘vuescroll/dist/vuescroll.css’</p>
+<p>export default {<br>    components: {<br>        vueScroll<br>    },<br>    }</p>
+<p>html:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;vue-scroll :ops=<span class="string">"ops"</span>&gt;</span><br><span class="line"> 你的内容</span><br><span class="line">&lt;/vue-scroll&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>配置:
+    ops: {
+            rail: {
+                size: &apos;10px&apos;
+            },
+            bar: {
+                onlyShowBarOnScroll: true,
+                keepShow: false,
+                background: &apos;#c1c1c1&apos;,
+                opacity: 0.5,
+                hoverStyle: true,
+                specifyBorderRadius: false,
+                minSize: 0.3,
+                size: &apos;6px&apos;
+            }
+        }
+</code></pre><p>-end</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/01/vue项目使用vuescroll滚动/" data-id="cjrler5o30001lor8q4yj07kr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/01/vue项目使用vuescroll滚动/" data-id="cjrleupn80001xsr8urtylh7t" class="article-share-link">Share</a>
       
       
     </footer>

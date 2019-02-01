@@ -88,7 +88,7 @@
 <meta property="og:description" content="node连接数据库的操作提：自动安装的mysql不在/usr/bin目录下，所以需要重新设置环境变量 才可以在终端Yvonne目录下启动mysql  启动数据库 cmd: mysql -u root -p  //本地数据库 打开设置里的目录   1）新建数据库  mysql&amp;gt; show databases;结果：   2 进入数据库）mysql&amp;gt; use bh 3 进入表）mysql&amp;">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/02/01/node连接数据库的操作/node.png">
-<meta property="og:updated_time" content="2019-02-01T08:07:18.880Z">
+<meta property="og:updated_time" content="2019-02-01T09:08:10.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node连接数据库的操作">
 <meta name="twitter:description" content="node连接数据库的操作提：自动安装的mysql不在/usr/bin目录下，所以需要重新设置环境变量 才可以在终端Yvonne目录下启动mysql  启动数据库 cmd: mysql -u root -p  //本地数据库 打开设置里的目录   1）新建数据库  mysql&amp;gt; show databases;结果：   2 进入数据库）mysql&amp;gt; use bh 3 进入表）mysql&amp;">
@@ -317,8 +317,8 @@
 <li>3 进入表）mysql&gt; show tables;</li>
 <li>4 新建表)</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE `instmediaSeedInfo` (</span><br><span class="line">    -&gt;   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT <span class="string">'主键ID值'</span>,</span><br><span class="line">    -&gt;   `status` int(11) NOT NULL DEFAULT <span class="string">'0'</span> COMMENT <span class="string">'种子状态, 0：有效  1：停止   2：删除'</span>,</span><br><span class="line">    -&gt;   `businessName` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'业务方'</span>,</span><br><span class="line">    -&gt;   `contentSource` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'表明内容由XSS爬取'</span>,</span><br><span class="line">    -&gt;   `seedId` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'XSS种子ID'</span>,</span><br><span class="line">    -&gt;   `seedName` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'XSS种子名'</span>,</span><br><span class="line">    -&gt;   `seedParams` varchar(1024) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'参数'</span>,</span><br><span class="line">    -&gt;   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>,</span><br><span class="line">    -&gt;   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'更新时间'</span>,</span><br><span class="line">    -&gt;   PRIMARY KEY (`id`)</span><br><span class="line">    -&gt; ) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line">* 5 show表）</span><br><span class="line">mysql&gt; show tables;</span><br></pre></td></tr></table></figure>
-<p>结果：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+-------------------+</span><br><span class="line">| Tables_in_bh      |</span><br><span class="line">+-------------------+</span><br><span class="line">| instmediaSeedInfo |</span><br><span class="line">+-------------------+</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE `blogInfo` (</span><br><span class="line">    -&gt;   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT <span class="string">'主键ID值'</span>,</span><br><span class="line">    -&gt;   `status` int(11) NOT NULL DEFAULT <span class="string">'0'</span> COMMENT <span class="string">'博文状态, 0：有效  1：停止   2：删除'</span>,</span><br><span class="line">    -&gt;   `contentSource` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'博文内容'</span>,</span><br><span class="line">    -&gt;   `blogId` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'博文ID'</span>,</span><br><span class="line">    -&gt;   `blogName` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'博文标题'</span>,</span><br><span class="line">    -&gt;   `blogParams` varchar(1024) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'参数'</span>,</span><br><span class="line">    -&gt;   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>,</span><br><span class="line">    -&gt;   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'更新时间'</span>,</span><br><span class="line">    -&gt;   PRIMARY KEY (`id`)</span><br><span class="line">    -&gt; ) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line">* 5 show表）</span><br><span class="line">mysql&gt; show tables;</span><br></pre></td></tr></table></figure>
+<p>结果：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+-------------------+</span><br><span class="line">| Tables_in_bh      |</span><br><span class="line">+-------------------+</span><br><span class="line">| blogInfo |</span><br><span class="line">+-------------------+</span><br></pre></td></tr></table></figure></p>
 <h3 id="Egg-node项目框架"><a href="#Egg-node项目框架" class="headerlink" title="Egg node项目框架"></a>Egg node项目框架</h3><p>2.后端sequelize连接数据库</p>
 <p>1）关联数据库</p>
 <pre><code>var sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {…
@@ -355,8 +355,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/01/vue的组件的传值方式/" rel="next" title="vue的组件的传值方式">
-                <i class="fa fa-chevron-left"></i> vue的组件的传值方式
+              <a href="/2019/02/01/vue的混合注入mixins/" rel="next" title="vue的混合注入mixins">
+                <i class="fa fa-chevron-left"></i> vue的混合注入mixins
               </a>
             
           </div>
@@ -365,8 +365,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/01/javascript的常用截取字符串的函数/" rel="prev" title="javascript的常用截取字符串的函数">
-                javascript的常用截取字符串的函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/01/vue的组件的传值方式/" rel="prev" title="vue的组件的传值方式">
+                vue的组件的传值方式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

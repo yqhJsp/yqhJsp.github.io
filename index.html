@@ -233,6 +233,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/vue的插槽slot和作用域插槽slot-scope/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/14/vue的插槽slot和作用域插槽slot-scope/" itemprop="url">vue的插槽slot和作用域插槽slot-scope</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T15:02:01+08:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="插槽slot的简单理解"><a href="#插槽slot的简单理解" class="headerlink" title="插槽slot的简单理解:"></a>插槽slot的简单理解:</h3><p>插槽，也就是slot，是组件中的一块HTML模板，这模块的显示与否由父组件决定。</p>
+<h3 id="单个插槽-默认插槽-匿名插槽-顾名思义就是无name命名的slot"><a href="#单个插槽-默认插槽-匿名插槽-顾名思义就是无name命名的slot" class="headerlink" title="单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot"></a>单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot</h3><h4 id="在组件my-component中的形式如"><a href="#在组件my-component中的形式如" class="headerlink" title="在组件my-component中的形式如:"></a>在组件my-component中的形式如:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h2&gt;我是子组件的标题&lt;/h2&gt;</span><br><span class="line">  &lt;slot&gt;</span><br><span class="line">    只有在没有要分发的内容时才会显示。</span><br><span class="line">  &lt;/slot&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="父组件模版"><a href="#父组件模版" class="headerlink" title="父组件模版:"></a>父组件模版:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h1&gt;我是父组件的标题&lt;/h1&gt;</span><br><span class="line">  &lt;my-component&gt;</span><br><span class="line">    &lt;p&gt;这是一些初始内容&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;这是更多的初始内容&lt;/p&gt;</span><br><span class="line">  &lt;/my-component&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="渲染结果"><a href="#渲染结果" class="headerlink" title="渲染结果"></a>渲染结果</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h1&gt;我是父组件的标题&lt;/h1&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;我是子组件的标题&lt;/h2&gt;</span><br><span class="line">    &lt;!--这里是slot--&gt;</span><br><span class="line">    &lt;p&gt;这是一些初始内容&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;这是更多的初始内容&lt;/p&gt;</span><br><span class="line">    &lt;!--slot--end--&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="具名插槽-可以用特性name进行命名-多个插槽的命名不能相同"><a href="#具名插槽-可以用特性name进行命名-多个插槽的命名不能相同" class="headerlink" title="具名插槽(可以用特性name进行命名,多个插槽的命名不能相同)"></a>具名插槽(可以用特性name进行命名,多个插槽的命名不能相同)</h3><p>例子:有多个插槽slot的组件app-layout的模版</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"container"</span>&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;slot name=<span class="string">"header"</span>&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/main&gt;</span><br><span class="line">  &lt;footer&gt;</span><br><span class="line">    &lt;slot name=<span class="string">"footer"</span>&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/footer&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>父组件的模版:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;app-layout&gt;</span><br><span class="line">  &lt;h1 slot=<span class="string">"header"</span>&gt;这里可能是一个页面标题&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;主要内容的一个段落。&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;另一个主要段落。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p slot=<span class="string">"footer"</span>&gt;这里有一些联系信息&lt;/p&gt;</span><br><span class="line">&lt;/app-layout&gt;</span><br></pre></td></tr></table></figure>
+<p>渲染结果:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"container"</span>&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;h1&gt;这里可能是一个页面标题&lt;/h1&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;p&gt;主要内容的一个段落。&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;另一个主要段落。&lt;/p&gt;</span><br><span class="line">  &lt;/main&gt;</span><br><span class="line">  &lt;footer&gt;</span><br><span class="line">    &lt;p&gt;这里有一些联系信息&lt;/p&gt;</span><br><span class="line">  &lt;/footer&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="作用域插槽-可用作一个能被传递数据的可重用模版"><a href="#作用域插槽-可用作一个能被传递数据的可重用模版" class="headerlink" title="作用域插槽(可用作一个能被传递数据的可重用模版)"></a>作用域插槽(可用作一个能被传递数据的可重用模版)</h3><h4 id="在子组件中，只需将数据传递到插槽，就像你将-prop-传递给组件一样："><a href="#在子组件中，只需将数据传递到插槽，就像你将-prop-传递给组件一样：" class="headerlink" title="在子组件中，只需将数据传递到插槽，就像你将 prop 传递给组件一样："></a>在子组件中，只需将数据传递到插槽，就像你将 prop 传递给组件一样：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;slot name=<span class="string">"item"</span></span><br><span class="line">    v-for=<span class="string">"item in items"</span></span><br><span class="line">    :text=<span class="string">"item.text"</span>&gt;</span><br><span class="line">    &lt;!-- 这里写入备用内容 --&gt;</span><br><span class="line">  &lt;/slot&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在父级中，具有特殊特性-slot-scope-的元素必须存在，表示它是作用域插槽的模板。slot-scope-的值将被用作一个临时变量名，此变量接收从子组件传递过来的-prop-对象："><a href="#在父级中，具有特殊特性-slot-scope-的元素必须存在，表示它是作用域插槽的模板。slot-scope-的值将被用作一个临时变量名，此变量接收从子组件传递过来的-prop-对象：" class="headerlink" title="在父级中，具有特殊特性 slot-scope 的元素必须存在，表示它是作用域插槽的模板。slot-scope 的值将被用作一个临时变量名，此变量接收从子组件传递过来的 prop 对象："></a>在父级中，具有特殊特性 slot-scope 的元素必须存在，表示它是作用域插槽的模板。slot-scope 的值将被用作一个临时变量名，此变量接收从子组件传递过来的 prop 对象：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-awesome-list :items=<span class="string">"items"</span>&gt;</span><br><span class="line">  &lt;!-- 作用域插槽也可以是具名的 --&gt;</span><br><span class="line">  &lt;li</span><br><span class="line">    slot=<span class="string">"item"</span></span><br><span class="line">    slot-scope=<span class="string">"&#123; text &#125;"</span>   //解构</span><br><span class="line">    class=<span class="string">"my-fancy-item"</span>&gt;</span><br><span class="line">    &#123;&#123; text &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/my-awesome-list&gt;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/vue的路由跳转方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -619,134 +749,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/vue的组件的传值方式/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yqh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yqhJsp的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/01/vue的组件的传值方式/" itemprop="url">vue的组件的传值方式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
-                2019-02-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1、子组件向父组件传值"><a href="#1、子组件向父组件传值" class="headerlink" title="1、子组件向父组件传值"></a>1、子组件向父组件传值</h3><p>(1)父组件通过props传值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;gdp-analy :params=<span class="string">"params"</span>:rsEcoConstruct=<span class="string">"permiseMixin.rsEcoConstruct"</span> ref=<span class="string">"gdpAnaly"</span>&gt;&lt;/gdp-analy&gt;</span><br></pre></td></tr></table></figure></p>
-<p>(2)子组件接收父组件的参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">name: <span class="string">'fundTrade'</span>,</span><br><span class="line">components: &#123;&#125;,</span><br><span class="line">props: &#123;</span><br><span class="line">	params: Object,</span><br><span class="line">	rsEcoConstruct: &#123;</span><br><span class="line">			<span class="built_in">type</span>: String,</span><br><span class="line">			default: <span class="string">'false'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><a href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）" class="headerlink" title="2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）"></a>2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</h3><h3 id="二、父组件的事件触发响应子组件的请求"><a href="#二、父组件的事件触发响应子组件的请求" class="headerlink" title="二、父组件的事件触发响应子组件的请求"></a>二、父组件的事件触发响应子组件的请求</h3><p>(1)在子组件添加事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">pChangeType</span></span>() &#123;</span><br><span class="line">this.params.countType = this.<span class="variable">$parent</span>.countType</span><br><span class="line">this.getEch1()</span><br><span class="line">this.getTable1()</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(2)在父组件的点击事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">changeData</span></span>()&#123;</span><br><span class="line">(1)//直接用<span class="variable">$parent</span>.xxx</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.pChangeType()</span><br></pre></td></tr></table></figure></p>
-<p>注意：用props传值,避免时间钩子问题，导致父组件还没渲染完，拿不到值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$nextTick</span>(() =&gt; &#123;</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.init()	</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、vue的兄弟组件件的通信"><a href="#三、vue的兄弟组件件的通信" class="headerlink" title="三、vue的兄弟组件件的通信"></a>三、vue的兄弟组件件的通信</h3><p>（1）eventBus(vue2.0s版本才有)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">步骤1：新建一个eventBus的js</span><br><span class="line">import Vue from <span class="string">'vue'</span>;</span><br><span class="line"><span class="built_in">export</span> default new Vue();</span><br><span class="line"></span><br><span class="line">在要使用eventBus的地方导入import Bus from <span class="string">'@/assets/js/eventBus'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤2：在要派发参数或事件的组件中用<span class="variable">$emit</span>绑定派发事件</span><br><span class="line">html:&lt;a class=<span class="string">"font-blue"</span> href=<span class="string">"javascript:;"</span> @click=<span class="string">"goCheck(item,0)"</span>&gt;查看&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">js:</span><br><span class="line">goCheck(item, index) &#123;</span><br><span class="line">Bus.<span class="variable">$emit</span>(<span class="string">'business-model-check'</span>, &#123; item, index &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤3：在兄弟组件中用<span class="variable">$on</span>监听是否有该事件</span><br><span class="line"><span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">this.init()</span><br><span class="line">Bus.<span class="variable">$on</span>(<span class="string">'business-model-check'</span>, params =&gt; &#123;</span><br><span class="line">this.getDetail(params)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/node连接数据库的操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -847,6 +849,134 @@
 要定义模型和表之间的映射，请使用define方法。
 </code></pre><p>3）操作数据库<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app/controller/operaterLog</span><br><span class="line">       </span><br><span class="line">Project.findOne()	</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>）调用的接口app/public/src/service</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>）页面app/public/page/operaterlog</span><br><span class="line">	Async函数返回的是一个promise对象</span><br><span class="line">	promise函数 需要用resolve接收返回结果</span><br><span class="line">	注意箭头函数不绑定<span class="keyword">this</span></span><br></pre></td></tr></table></figure></p>
 <p>Ssdb是当数据库挂了数据会自动先保存到本地</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/vue的组件的传值方式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/01/vue的组件的传值方式/" itemprop="url">vue的组件的传值方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
+                2019-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1、子组件向父组件传值"><a href="#1、子组件向父组件传值" class="headerlink" title="1、子组件向父组件传值"></a>1、子组件向父组件传值</h3><p>(1)父组件通过props传值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;gdp-analy :params=<span class="string">"params"</span>:rsEcoConstruct=<span class="string">"permiseMixin.rsEcoConstruct"</span> ref=<span class="string">"gdpAnaly"</span>&gt;&lt;/gdp-analy&gt;</span><br></pre></td></tr></table></figure></p>
+<p>(2)子组件接收父组件的参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">name: <span class="string">'fundTrade'</span>,</span><br><span class="line">components: &#123;&#125;,</span><br><span class="line">props: &#123;</span><br><span class="line">	params: Object,</span><br><span class="line">	rsEcoConstruct: &#123;</span><br><span class="line">			<span class="built_in">type</span>: String,</span><br><span class="line">			default: <span class="string">'false'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><a href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）" class="headerlink" title="2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）"></a>2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</h3><h3 id="二、父组件的事件触发响应子组件的请求"><a href="#二、父组件的事件触发响应子组件的请求" class="headerlink" title="二、父组件的事件触发响应子组件的请求"></a>二、父组件的事件触发响应子组件的请求</h3><p>(1)在子组件添加事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">pChangeType</span></span>() &#123;</span><br><span class="line">this.params.countType = this.<span class="variable">$parent</span>.countType</span><br><span class="line">this.getEch1()</span><br><span class="line">this.getTable1()</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2)在父组件的点击事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">changeData</span></span>()&#123;</span><br><span class="line">(1)//直接用<span class="variable">$parent</span>.xxx</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.pChangeType()</span><br></pre></td></tr></table></figure></p>
+<p>注意：用props传值,避免时间钩子问题，导致父组件还没渲染完，拿不到值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$nextTick</span>(() =&gt; &#123;</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.init()	</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、vue的兄弟组件件的通信"><a href="#三、vue的兄弟组件件的通信" class="headerlink" title="三、vue的兄弟组件件的通信"></a>三、vue的兄弟组件件的通信</h3><p>（1）eventBus(vue2.0s版本才有)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">步骤1：新建一个eventBus的js</span><br><span class="line">import Vue from <span class="string">'vue'</span>;</span><br><span class="line"><span class="built_in">export</span> default new Vue();</span><br><span class="line"></span><br><span class="line">在要使用eventBus的地方导入import Bus from <span class="string">'@/assets/js/eventBus'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤2：在要派发参数或事件的组件中用<span class="variable">$emit</span>绑定派发事件</span><br><span class="line">html:&lt;a class=<span class="string">"font-blue"</span> href=<span class="string">"javascript:;"</span> @click=<span class="string">"goCheck(item,0)"</span>&gt;查看&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">js:</span><br><span class="line">goCheck(item, index) &#123;</span><br><span class="line">Bus.<span class="variable">$emit</span>(<span class="string">'business-model-check'</span>, &#123; item, index &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤3：在兄弟组件中用<span class="variable">$on</span>监听是否有该事件</span><br><span class="line"><span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">this.init()</span><br><span class="line">Bus.<span class="variable">$on</span>(<span class="string">'business-model-check'</span>, params =&gt; &#123;</span><br><span class="line">this.getDetail(params)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1342,7 +1472,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

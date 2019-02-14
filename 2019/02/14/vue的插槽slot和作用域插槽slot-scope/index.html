@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="插槽slot的简单理解:插槽，也就是slot，是组件中的一块HTML模板，这模块的显示与否由父组件决定。 单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot在组件my-component中的形式如:123456&amp;lt;div&amp;gt;  &amp;lt;h2&amp;gt;我是子组件的标题&amp;lt;/h2&amp;gt;  &amp;lt;slot&amp;gt;    只有在没有要分发的内容时才会显示。  &amp;lt;/sl">
+<meta name="keywords" content="javascript ajax vue html css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue的插槽slot和作用域插槽slot-scope">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/vue的插槽slot和作用域插槽slot-scope/index.html">
+<meta property="og:site_name" content="yqhJsp的个人博客">
+<meta property="og:description" content="插槽slot的简单理解:插槽，也就是slot，是组件中的一块HTML模板，这模块的显示与否由父组件决定。 单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot在组件my-component中的形式如:123456&amp;lt;div&amp;gt;  &amp;lt;h2&amp;gt;我是子组件的标题&amp;lt;/h2&amp;gt;  &amp;lt;slot&amp;gt;    只有在没有要分发的内容时才会显示。  &amp;lt;/sl">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-14T07:39:31.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue的插槽slot和作用域插槽slot-scope">
+<meta name="twitter:description" content="插槽slot的简单理解:插槽，也就是slot，是组件中的一块HTML模板，这模块的显示与否由父组件决定。 单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot在组件my-component中的形式如:123456&amp;lt;div&amp;gt;  &amp;lt;h2&amp;gt;我是子组件的标题&amp;lt;/h2&amp;gt;  &amp;lt;slot&amp;gt;    只有在没有要分发的内容时才会显示。  &amp;lt;/sl">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/14/vue的插槽slot和作用域插槽slot-scope/">
+
+
+
+
+
+  <title>vue的插槽slot和作用域插槽slot-scope | yqhJsp的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yqhJsp的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/vue的插槽slot和作用域插槽slot-scope/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue的插槽slot和作用域插槽slot-scope</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T15:02:01+08:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="插槽slot的简单理解"><a href="#插槽slot的简单理解" class="headerlink" title="插槽slot的简单理解:"></a>插槽slot的简单理解:</h3><p>插槽，也就是slot，是组件中的一块HTML模板，这模块的显示与否由父组件决定。</p>
+<h3 id="单个插槽-默认插槽-匿名插槽-顾名思义就是无name命名的slot"><a href="#单个插槽-默认插槽-匿名插槽-顾名思义就是无name命名的slot" class="headerlink" title="单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot"></a>单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot</h3><h4 id="在组件my-component中的形式如"><a href="#在组件my-component中的形式如" class="headerlink" title="在组件my-component中的形式如:"></a>在组件my-component中的形式如:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h2&gt;我是子组件的标题&lt;/h2&gt;</span><br><span class="line">  &lt;slot&gt;</span><br><span class="line">    只有在没有要分发的内容时才会显示。</span><br><span class="line">  &lt;/slot&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="父组件模版"><a href="#父组件模版" class="headerlink" title="父组件模版:"></a>父组件模版:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h1&gt;我是父组件的标题&lt;/h1&gt;</span><br><span class="line">  &lt;my-component&gt;</span><br><span class="line">    &lt;p&gt;这是一些初始内容&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;这是更多的初始内容&lt;/p&gt;</span><br><span class="line">  &lt;/my-component&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="渲染结果"><a href="#渲染结果" class="headerlink" title="渲染结果"></a>渲染结果</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h1&gt;我是父组件的标题&lt;/h1&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;我是子组件的标题&lt;/h2&gt;</span><br><span class="line">    &lt;!--这里是slot--&gt;</span><br><span class="line">    &lt;p&gt;这是一些初始内容&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;这是更多的初始内容&lt;/p&gt;</span><br><span class="line">    &lt;!--slot--end--&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="具名插槽-可以用特性name进行命名-多个插槽的命名不能相同"><a href="#具名插槽-可以用特性name进行命名-多个插槽的命名不能相同" class="headerlink" title="具名插槽(可以用特性name进行命名,多个插槽的命名不能相同)"></a>具名插槽(可以用特性name进行命名,多个插槽的命名不能相同)</h3><p>例子:有多个插槽slot的组件app-layout的模版</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"container"</span>&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;slot name=<span class="string">"header"</span>&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/main&gt;</span><br><span class="line">  &lt;footer&gt;</span><br><span class="line">    &lt;slot name=<span class="string">"footer"</span>&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/footer&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>父组件的模版:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;app-layout&gt;</span><br><span class="line">  &lt;h1 slot=<span class="string">"header"</span>&gt;这里可能是一个页面标题&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;主要内容的一个段落。&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;另一个主要段落。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p slot=<span class="string">"footer"</span>&gt;这里有一些联系信息&lt;/p&gt;</span><br><span class="line">&lt;/app-layout&gt;</span><br></pre></td></tr></table></figure>
+<p>渲染结果:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"container"</span>&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;h1&gt;这里可能是一个页面标题&lt;/h1&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;p&gt;主要内容的一个段落。&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;另一个主要段落。&lt;/p&gt;</span><br><span class="line">  &lt;/main&gt;</span><br><span class="line">  &lt;footer&gt;</span><br><span class="line">    &lt;p&gt;这里有一些联系信息&lt;/p&gt;</span><br><span class="line">  &lt;/footer&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="作用域插槽-可用作一个能被传递数据的可重用模版"><a href="#作用域插槽-可用作一个能被传递数据的可重用模版" class="headerlink" title="作用域插槽(可用作一个能被传递数据的可重用模版)"></a>作用域插槽(可用作一个能被传递数据的可重用模版)</h3><h4 id="在子组件中，只需将数据传递到插槽，就像你将-prop-传递给组件一样："><a href="#在子组件中，只需将数据传递到插槽，就像你将-prop-传递给组件一样：" class="headerlink" title="在子组件中，只需将数据传递到插槽，就像你将 prop 传递给组件一样："></a>在子组件中，只需将数据传递到插槽，就像你将 prop 传递给组件一样：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;slot name=<span class="string">"item"</span></span><br><span class="line">    v-for=<span class="string">"item in items"</span></span><br><span class="line">    :text=<span class="string">"item.text"</span>&gt;</span><br><span class="line">    &lt;!-- 这里写入备用内容 --&gt;</span><br><span class="line">  &lt;/slot&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="在父级中，具有特殊特性-slot-scope-的元素必须存在，表示它是作用域插槽的模板。slot-scope-的值将被用作一个临时变量名，此变量接收从子组件传递过来的-prop-对象："><a href="#在父级中，具有特殊特性-slot-scope-的元素必须存在，表示它是作用域插槽的模板。slot-scope-的值将被用作一个临时变量名，此变量接收从子组件传递过来的-prop-对象：" class="headerlink" title="在父级中，具有特殊特性 slot-scope 的元素必须存在，表示它是作用域插槽的模板。slot-scope 的值将被用作一个临时变量名，此变量接收从子组件传递过来的 prop 对象："></a>在父级中，具有特殊特性 slot-scope 的元素必须存在，表示它是作用域插槽的模板。slot-scope 的值将被用作一个临时变量名，此变量接收从子组件传递过来的 prop 对象：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-awesome-list :items=<span class="string">"items"</span>&gt;</span><br><span class="line">  &lt;!-- 作用域插槽也可以是具名的 --&gt;</span><br><span class="line">  &lt;li</span><br><span class="line">    slot=<span class="string">"item"</span></span><br><span class="line">    slot-scope=<span class="string">"&#123; text &#125;"</span>   //解构</span><br><span class="line">    class=<span class="string">"my-fancy-item"</span>&gt;</span><br><span class="line">    &#123;&#123; text &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/my-awesome-list&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/01/vue的路由跳转方式/" rel="next" title="vue的路由跳转方式">
+                <i class="fa fa-chevron-left"></i> vue的路由跳转方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">yqh</p>
+              <p class="site-description motion-element" itemprop="description">一个热爱技术、安静、美腻的girl!!!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#插槽slot的简单理解"><span class="nav-number">1.</span> <span class="nav-text">插槽slot的简单理解:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单个插槽-默认插槽-匿名插槽-顾名思义就是无name命名的slot"><span class="nav-number">2.</span> <span class="nav-text">单个插槽(默认插槽/匿名插槽)-顾名思义就是无name命名的slot</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在组件my-component中的形式如"><span class="nav-number">2.1.</span> <span class="nav-text">在组件my-component中的形式如:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父组件模版"><span class="nav-number">2.2.</span> <span class="nav-text">父组件模版:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染结果"><span class="nav-number">2.3.</span> <span class="nav-text">渲染结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具名插槽-可以用特性name进行命名-多个插槽的命名不能相同"><span class="nav-number">3.</span> <span class="nav-text">具名插槽(可以用特性name进行命名,多个插槽的命名不能相同)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域插槽-可用作一个能被传递数据的可重用模版"><span class="nav-number">4.</span> <span class="nav-text">作用域插槽(可用作一个能被传递数据的可重用模版)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在子组件中，只需将数据传递到插槽，就像你将-prop-传递给组件一样："><span class="nav-number">4.1.</span> <span class="nav-text">在子组件中，只需将数据传递到插槽，就像你将 prop 传递给组件一样：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在父级中，具有特殊特性-slot-scope-的元素必须存在，表示它是作用域插槽的模板。slot-scope-的值将被用作一个临时变量名，此变量接收从子组件传递过来的-prop-对象："><span class="nav-number">4.2.</span> <span class="nav-text">在父级中，具有特殊特性 slot-scope 的元素必须存在，表示它是作用域插槽的模板。slot-scope 的值将被用作一个临时变量名，此变量接收从子组件传递过来的 prop 对象：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yqh</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

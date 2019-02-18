@@ -233,6 +233,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/webpack项目的搭建/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/15/webpack项目的搭建/" itemprop="url">webpack项目的搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T10:10:48+08:00">
+                2019-02-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤:"></a>搭建步骤:</h3><p>1、新建个文件web-demo,初始化 npm init，该文件夹下会出现package.json文件</p>
+<p>2、安装依赖包 npm install</p>
+<p>3、安装webpack<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm  install webpack  --sava-dev</span><br><span class="line">( 注：--sava-dev是开发环境)</span><br></pre></td></tr></table></figure></p>
+<p>4、新建一个webpack.config.js文件</p>
+<p>5、新建一个src文件夹，并新建一个page的文件夹，里面新建index.html\index.css\indecx.js文件</p>
+<p>6、为使webpack启动方便，我们在package，json的scripts里配置:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"webpack --config webpack.config.js --progress --display-modules --colors --display-reason"</span>,</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>7、安装插件启动webpack的插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-cli --save-dev</span><br><span class="line">npm install html-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure></p>
+<p> 8、配置webpack.config.js如下：<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">  const HtmlWebpackPlugin = require(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line">// const CleanWebpackPlugin = require(<span class="string">'clean-webpack-plugin'</span>); //每次构建前清理 /dist 文件夹</span><br><span class="line">const path = require(<span class="string">'path'</span>)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    page1: __dirname + <span class="string">'/src/page1/index.js'</span>,// page1的入口文件，webpack是以js为入口文件的</span><br><span class="line">    page2: __dirname + <span class="string">'/src/page2/index.js'</span>,</span><br><span class="line"></span><br><span class="line">    //把为入口文件放在dist目录的js文件夹下，</span><br><span class="line">    //name是文件名，chunkhash是每次打包文件的<span class="built_in">hash</span>值，</span><br><span class="line">    //目的是如果哪个文件修改，chunkhash会改变，可以只上线修改过的文件</span><br><span class="line">    // publicPath: <span class="string">'http://cdn.com/'</span> //如果上线，可以改为线上地址</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + <span class="string">'/dist'</span>,//产出路径，一般放在dist目录下</span><br><span class="line">    filename: <span class="string">'js/[name]-[chunkhash].js'</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  //配置本地服务器</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    host: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">    port: 8088,</span><br><span class="line">    inline: <span class="literal">true</span>,</span><br><span class="line">    open: <span class="literal">true</span>,  //自动打开浏览器</span><br><span class="line">    hot: <span class="literal">false</span>,  //慎用，打开热更新，会导致修改样式可能不支持。关闭热更新，页面会强刷</span><br><span class="line">    contentBase: path.join(__dirname, <span class="string">"dist"</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">test</span>: /\.css$/,</span><br><span class="line">        use: [</span><br><span class="line">          <span class="string">'style-loader'</span>,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">'css-loader'</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              importLoaders: 1</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">'postcss-loader'</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              plugins: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                <span class="built_in">return</span> [</span><br><span class="line">                  require(<span class="string">'autoprefixer'</span>)(&#123;</span><br><span class="line">                    browsers: [<span class="string">"last 5 versions"</span>]</span><br><span class="line">                  &#125;), //添加浏览器前缀</span><br><span class="line">                ];</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">        exclude: /node_modules/</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      filename: <span class="string">'page1.html'</span>,//入口html</span><br><span class="line">      template: <span class="string">'./src/page1/index.html'</span>,</span><br><span class="line">      minify: &#123;</span><br><span class="line">        // removeComments:<span class="literal">true</span>,   //删除注释</span><br><span class="line">        // collapseWhitespace: <span class="literal">true</span>      //删除空格，压缩</span><br><span class="line">      &#125;,</span><br><span class="line">      chunks: [<span class="string">'page1'</span>]</span><br><span class="line">    &#125;),</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      filename: <span class="string">'page2.html'</span>,//入口html</span><br><span class="line">      template: <span class="string">'./src/page2/index.html'</span>,</span><br><span class="line">      minify: &#123;</span><br><span class="line">        // removeComments:<span class="literal">true</span>,   //删除注释</span><br><span class="line">        // collapseWhitespace: <span class="literal">true</span>      //删除空格，压缩</span><br><span class="line">      &#125;,</span><br><span class="line">      chunks: [<span class="string">'page2'</span>]</span><br><span class="line">    &#125;),</span><br><span class="line">    // new CleanWebpackPlugin([<span class="string">'dist'</span>]),</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>9、运行npm run webpack打包，便可以看到项目目录出现dist文件夹，该文件夹里的文件就是打包过后的文件</p>
+<p>10、配置本地启动的服务器localhost，处理scss，css，图片等资源</p>
+<p>10.1、配置本地服务器：</p>
+<p>10.2. 在 package.json 下面配置如下代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line"><span class="string">"start"</span>: <span class="string">"node_modules/.bin/webpack-dev-server"</span>,</span><br><span class="line"><span class="string">"dev"</span>: <span class="string">"webpack --mode development"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>10.3、在 webpack.config.js 引入 path<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const path = require(<span class="string">'path'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>10.4、在  webpack.config.js 配置 devServer<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//配置本地服务器</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    host: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">    port: 8088,</span><br><span class="line">    inline: <span class="literal">true</span>,</span><br><span class="line">    open: <span class="literal">true</span>,  //自动打开浏览器</span><br><span class="line">    hot: <span class="literal">false</span>,  //慎用，打开热更新，会导致修改样式可能不支持。关闭热更新，页面会强刷</span><br><span class="line">    contentBase: path.join(__dirname, <span class="string">"dist"</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">``` </span><br><span class="line">10.5、运行npm run dev然后在运行npm run start</span><br><span class="line"></span><br><span class="line">10.6、处理CSS,SCSS文件类型：</span><br><span class="line"></span><br><span class="line">在 index.css 下面给 body 添加背景颜色：</span><br><span class="line">```bash</span><br><span class="line">body&#123;</span><br><span class="line">    background-color:red</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在 index.js 引入这两个 css 文件</p>
+<p>10.6、安装处理css的插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev css-loader style-loader</span><br><span class="line"> </span><br><span class="line">npm install sass-loader node-sass --save-dev</span><br><span class="line"> </span><br><span class="line">npm install postcss-cli autoprefixer</span><br></pre></td></tr></table></figure></p>
+<p>然后在运行npm run start</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/vue的插槽slot和作用域插槽slot-scope/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -620,135 +756,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yqh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yqhJsp的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/01/javascript的常用截取字符串的函数/" itemprop="url">javascript的常用截取字符串的函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
-                2019-02-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p>
-<p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p>
-<p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p>
-<h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p>
-<p>其函数形式为：int ff(void)const;</p>
-<p>(2)const修饰函数的返回值，用于返回常量；</p>
-<p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p>
-<p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p>
-<p>int* const i=;  代表指针i是常量，所指的内容可以修改</p>
-<p>3、unshift倒叙排序<br>4、replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串。。为了帮助大家更好的理解，下面举个简单例子说明一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"中文 - 标题"</span>.replace(/[\u4e00-\u9fa5]+\s+\-\s+/,<span class="string">''</span>); </span><br><span class="line"></span><br><span class="line">console.log(s)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/node连接数据库的操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -978,6 +985,135 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤2：在要派发参数或事件的组件中用<span class="variable">$emit</span>绑定派发事件</span><br><span class="line">html:&lt;a class=<span class="string">"font-blue"</span> href=<span class="string">"javascript:;"</span> @click=<span class="string">"goCheck(item,0)"</span>&gt;查看&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">js:</span><br><span class="line">goCheck(item, index) &#123;</span><br><span class="line">Bus.<span class="variable">$emit</span>(<span class="string">'business-model-check'</span>, &#123; item, index &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤3：在兄弟组件中用<span class="variable">$on</span>监听是否有该事件</span><br><span class="line"><span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">this.init()</span><br><span class="line">Bus.<span class="variable">$on</span>(<span class="string">'business-model-check'</span>, params =&gt; &#123;</span><br><span class="line">this.getDetail(params)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/01/javascript的常用截取字符串的函数/" itemprop="url">javascript的常用截取字符串的函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
+                2019-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p>
+<p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p>
+<p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p>
+<h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p>
+<p>其函数形式为：int ff(void)const;</p>
+<p>(2)const修饰函数的返回值，用于返回常量；</p>
+<p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p>
+<p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p>
+<p>int* const i=;  代表指针i是常量，所指的内容可以修改</p>
+<p>3、unshift倒叙排序<br>4、replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串。。为了帮助大家更好的理解，下面举个简单例子说明一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"中文 - 标题"</span>.replace(/[\u4e00-\u9fa5]+\s+\-\s+/,<span class="string">''</span>); </span><br><span class="line"></span><br><span class="line">console.log(s)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1472,7 +1608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

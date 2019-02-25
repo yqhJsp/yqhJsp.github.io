@@ -81,18 +81,22 @@
 
 
 
-<meta name="description" content="vue-app-cli可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。">
+<meta name="description" content="vue-app-cli可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。 它实现了以下功能： 快速生成app模板 快速创建新页面 支持es6 支持.vue文件 基于sass编写样式文件 模块导入样式文件 错误映射  1、环境搭建1npm i vue-app-cli -g 然后随便进入个文件夹，执行命令vue-app，查看是否可以全局使用 2、构建项">
 <meta name="keywords" content="javascript ajax vue html css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建vue-app的开发环境以及打包app发布">
+<meta property="og:title" content="搭建移动端vue-app项目">
 <meta property="og:url" content="http://yoursite.com/2019/02/25/搭建vue-app的开发环境以及打包app发布/index.html">
 <meta property="og:site_name" content="yqhJsp">
-<meta property="og:description" content="vue-app-cli可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。">
+<meta property="og:description" content="vue-app-cli可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。 它实现了以下功能： 快速生成app模板 快速创建新页面 支持es6 支持.vue文件 基于sass编写样式文件 模块导入样式文件 错误映射  1、环境搭建1npm i vue-app-cli -g 然后随便进入个文件夹，执行命令vue-app，查看是否可以全局使用 2、构建项">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-25T02:41:29.134Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/25/搭建vue-app的开发环境以及打包app发布/app.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/25/搭建vue-app的开发环境以及打包app发布/app2.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/25/搭建vue-app的开发环境以及打包app发布/app3.jpg">
+<meta property="og:updated_time" content="2019-02-25T06:56:55.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建vue-app的开发环境以及打包app发布">
-<meta name="twitter:description" content="vue-app-cli可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。">
+<meta name="twitter:title" content="搭建移动端vue-app项目">
+<meta name="twitter:description" content="vue-app-cli可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。 它实现了以下功能： 快速生成app模板 快速创建新页面 支持es6 支持.vue文件 基于sass编写样式文件 模块导入样式文件 错误映射  1、环境搭建1npm i vue-app-cli -g 然后随便进入个文件夹，执行命令vue-app，查看是否可以全局使用 2、构建项">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/25/搭建vue-app的开发环境以及打包app发布/app.jpg">
 
 
 
@@ -128,7 +132,7 @@
 
 
 
-  <title>搭建vue-app的开发环境以及打包app发布 | yqhJsp</title>
+  <title>搭建移动端vue-app项目 | yqhJsp</title>
   
 
 
@@ -272,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">搭建vue-app的开发环境以及打包app发布</h1>
+          <h1 class="post-title" itemprop="name headline">搭建移动端vue-app项目</h1>
         
 
         <div class="post-meta">
@@ -323,6 +327,31 @@
 
       
         <h3 id="vue-app-cli"><a href="#vue-app-cli" class="headerlink" title="vue-app-cli"></a>vue-app-cli</h3><p>可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。</p>
+<h4 id="它实现了以下功能："><a href="#它实现了以下功能：" class="headerlink" title="它实现了以下功能："></a>它实现了以下功能：</h4><ul>
+<li>快速生成app模板</li>
+<li>快速创建新页面</li>
+<li>支持es6</li>
+<li>支持.vue文件</li>
+<li>基于sass编写样式文件</li>
+<li>模块导入样式文件</li>
+<li>错误映射</li>
+</ul>
+<h4 id="1、环境搭建"><a href="#1、环境搭建" class="headerlink" title="1、环境搭建"></a>1、环境搭建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vue-app-cli -g</span><br></pre></td></tr></table></figure>
+<p>然后随便进入个文件夹，执行命令vue-app，查看是否可以全局使用<br><img src="/2019/02/25/搭建vue-app的开发环境以及打包app发布/app.jpg" alt="vue" title="示例图片"></p>
+<h4 id="2、构建项目目录"><a href="#2、构建项目目录" class="headerlink" title="2、构建项目目录"></a>2、构建项目目录</h4><p>注：所有的命令均必须在项目的根目录中输入，在本例子中是vueApp</p>
+<p>(1)在根目录下创建工程，在命令行中输入vue-app init vueApp;</p>
+<p>(2)进入到vueApp文件夹下，安装依赖cd vueApp &amp;&amp; npm i，之后使用npm start启动项目，双击pages/home.html<br><img src="/2019/02/25/搭建vue-app的开发环境以及打包app发布/app2.png" alt="vue" title="示例图片"></p>
+<p>(3)目录结构如下：</p>
+<p><img src="/2019/02/25/搭建vue-app的开发环境以及打包app发布/app3.jpg" alt="vue" title="示例图片"></p>
+<ul>
+<li>build存放构建好的js和css</li>
+<li>components存放每个页面的根组件，你可以在每个文件夹内部扩展其他组件</li>
+<li>css存放页面样式，建议将通用样式和框架样式放入其中，页面自己的样式写入到.vue中</li>
+<li>entry存放每个页面的入口js文件，例如：home页的入口文件为entry/home.js</li>
+<li>images存放图片</li>
+<li>js存放页面逻辑，建议将通用逻辑和框架js放入其中，页面自己的逻辑写入到.vue中</li>
+<li>pages存放页面</li>
+</ul>
 
       
     </div>
@@ -476,7 +505,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-app-cli"><span class="nav-number">1.</span> <span class="nav-text">vue-app-cli</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-app-cli"><span class="nav-number">1.</span> <span class="nav-text">vue-app-cli</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#它实现了以下功能："><span class="nav-number">1.1.</span> <span class="nav-text">它实现了以下功能：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、环境搭建"><span class="nav-number">1.2.</span> <span class="nav-text">1、环境搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、构建项目目录"><span class="nav-number">1.3.</span> <span class="nav-text">2、构建项目目录</span></a></li></ol></li></ol></div>
             
 
           </div>

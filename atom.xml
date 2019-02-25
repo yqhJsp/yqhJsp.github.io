@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-25T02:41:29.134Z</updated>
+  <updated>2019-02-25T06:56:55.605Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>搭建vue-app的开发环境以及打包app发布</title>
+    <title>搭建移动端vue-app项目</title>
     <link href="http://yoursite.com/2019/02/25/%E6%90%AD%E5%BB%BAvue-app%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8C%85app%E5%8F%91%E5%B8%83/"/>
     <id>http://yoursite.com/2019/02/25/搭建vue-app的开发环境以及打包app发布/</id>
     <published>2019-02-25T02:38:36.000Z</published>
-    <updated>2019-02-25T02:41:29.134Z</updated>
+    <updated>2019-02-25T06:56:55.605Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="vue-app-cli"><a href="#vue-app-cli" class="headerlink" title="vue-app-cli"></a>vue-app-cli</h3><p>可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="vue-app-cli"><a href="#vue-app-cli" class="headerlink" title="vue-app-cli"></a>vue-app-cli</h3><p>可以快速构建基于vue的app多页应用，对h5页面app和html5 plus原生app都十分友好。</p><h4 id="它实现了以下功能："><a href="#它实现了以下功能：" class="headerlink" title="它实现了以下功能："></a>它实现了以下功能：</h4><ul><li>快速生成app模板</li><li>快速创建新页面</li><li>支持es6</li><li>支持.vue文件</li><li>基于sass编写样式文件</li><li>模块导入样式文件</li><li>错误映射</li></ul><h4 id="1、环境搭建"><a href="#1、环境搭建" class="headerlink" title="1、环境搭建"></a>1、环境搭建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vue-app-cli -g</span><br></pre></td></tr></table></figure><p>然后随便进入个文件夹，执行命令vue-app，查看是否可以全局使用<br><img src="/2019/02/25/搭建vue-app的开发环境以及打包app发布/app.jpg" alt="vue" title="示例图片"></p><h4 id="2、构建项目目录"><a href="#2、构建项目目录" class="headerlink" title="2、构建项目目录"></a>2、构建项目目录</h4><p>注：所有的命令均必须在项目的根目录中输入，在本例子中是vueApp</p><p>(1)在根目录下创建工程，在命令行中输入vue-app init vueApp;</p><p>(2)进入到vueApp文件夹下，安装依赖cd vueApp &amp;&amp; npm i，之后使用npm start启动项目，双击pages/home.html<br><img src="/2019/02/25/搭建vue-app的开发环境以及打包app发布/app2.png" alt="vue" title="示例图片"></p><p>(3)目录结构如下：</p><p><img src="/2019/02/25/搭建vue-app的开发环境以及打包app发布/app3.jpg" alt="vue" title="示例图片"></p><ul><li>build存放构建好的js和css</li><li>components存放每个页面的根组件，你可以在每个文件夹内部扩展其他组件</li><li>css存放页面样式，建议将通用样式和框架样式放入其中，页面自己的样式写入到.vue中</li><li>entry存放每个页面的入口js文件，例如：home页的入口文件为entry/home.js</li><li>images存放图片</li><li>js存放页面逻辑，建议将通用逻辑和框架js放入其中，页面自己的逻辑写入到.vue中</li><li>pages存放页面</li></ul>]]></content>
     
     <summary type="html">
     
@@ -123,6 +123,48 @@
   </entry>
   
   <entry>
+    <title>es6的常用函数</title>
+    <link href="http://yoursite.com/2019/02/01/es6%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/02/01/es6的常用函数/</id>
+    <published>2019-02-01T07:59:48.000Z</published>
+    <updated>2019-02-18T03:46:05.453Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、es6的数组实例的 entries()，是键值对的遍历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [index, elem] of [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123;</span><br><span class="line">  console.log(index, elem);</span><br><span class="line">&#125;</span><br><span class="line">// 0 <span class="string">"a"</span></span><br><span class="line">// 1 <span class="string">"b"</span></span><br></pre></td></tr></table></figure></p><p>2、对象的解构</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123;list,children&#125;=data</span><br><span class="line">list=data.list</span><br><span class="line">children=list.children</span><br></pre></td></tr></table></figure><p>(注意，data中必须包含同名的对象）</p><p>3、数组的浅拷贝<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> d=[1,2,3]</span><br><span class="line"><span class="built_in">let</span> arr=[...data,5,6]</span><br><span class="line">(...扩展符号）</span><br></pre></td></tr></table></figure></p><p>4、数组的解构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> [a,b,c]=[1,2,3]</span><br><span class="line">console.log(a,b,c)</span><br><span class="line">打印:1,2,3</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、es6的数组实例的 entries()，是键值对的遍历&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span c
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>javascript的常用截取字符串的函数</title>
+    <link href="http://yoursite.com/2019/02/01/javascript%E7%9A%84%E5%B8%B8%E7%94%A8%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/</id>
+    <published>2019-02-01T07:59:48.000Z</published>
+    <updated>2019-02-01T08:19:22.324Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p><p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p><p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p><h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p><p>其函数形式为：int ff(void)const;</p><p>(2)const修饰函数的返回值，用于返回常量；</p><p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p><p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p><p>int* const i=;  代表指针i是常量，所指的内容可以修改</p><p>3、unshift倒叙排序<br>4、replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串。。为了帮助大家更好的理解，下面举个简单例子说明一下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"中文 - 标题"</span>.replace(/[\u4e00-\u9fa5]+\s+\-\s+/,<span class="string">''</span>); </span><br><span class="line"></span><br><span class="line">console.log(s)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;substr-、substring-、slice的用法&quot;&gt;&lt;a href=&quot;#substr-、substring-、slice的用法&quot; class=&quot;headerlink&quot; title=&quot;substr 、substring 、slice的用法&quot;&gt;&lt;/a&gt;subst
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>vue的组件的传值方式</title>
     <link href="http://yoursite.com/2019/02/01/vue%E7%9A%84%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BC%A0%E5%80%BC%E6%96%B9%E5%BC%8F/"/>
     <id>http://yoursite.com/2019/02/01/vue的组件的传值方式/</id>
@@ -157,48 +199,6 @@
       
       
         &lt;h2 id=&quot;node连接数据库的操作&quot;&gt;&lt;a href=&quot;#node连接数据库的操作&quot; class=&quot;headerlink&quot; title=&quot;node连接数据库的操作&quot;&gt;&lt;/a&gt;node连接数据库的操作&lt;/h2&gt;&lt;p&gt;提：自动安装的mysql不在/usr/bin目录下，所以需要
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>javascript的常用截取字符串的函数</title>
-    <link href="http://yoursite.com/2019/02/01/javascript%E7%9A%84%E5%B8%B8%E7%94%A8%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%BD%E6%95%B0/"/>
-    <id>http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/</id>
-    <published>2019-02-01T07:59:48.000Z</published>
-    <updated>2019-02-01T08:19:22.324Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p><p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p><p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p><h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p><p>其函数形式为：int ff(void)const;</p><p>(2)const修饰函数的返回值，用于返回常量；</p><p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p><p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p><p>int* const i=;  代表指针i是常量，所指的内容可以修改</p><p>3、unshift倒叙排序<br>4、replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串。。为了帮助大家更好的理解，下面举个简单例子说明一下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"中文 - 标题"</span>.replace(/[\u4e00-\u9fa5]+\s+\-\s+/,<span class="string">''</span>); </span><br><span class="line"></span><br><span class="line">console.log(s)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;substr-、substring-、slice的用法&quot;&gt;&lt;a href=&quot;#substr-、substring-、slice的用法&quot; class=&quot;headerlink&quot; title=&quot;substr 、substring 、slice的用法&quot;&gt;&lt;/a&gt;subst
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>es6的常用函数</title>
-    <link href="http://yoursite.com/2019/02/01/es6%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"/>
-    <id>http://yoursite.com/2019/02/01/es6的常用函数/</id>
-    <published>2019-02-01T07:59:48.000Z</published>
-    <updated>2019-02-18T03:46:05.453Z</updated>
-    
-    <content type="html"><![CDATA[<p>1、es6的数组实例的 entries()，是键值对的遍历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [index, elem] of [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123;</span><br><span class="line">  console.log(index, elem);</span><br><span class="line">&#125;</span><br><span class="line">// 0 <span class="string">"a"</span></span><br><span class="line">// 1 <span class="string">"b"</span></span><br></pre></td></tr></table></figure></p><p>2、对象的解构</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123;list,children&#125;=data</span><br><span class="line">list=data.list</span><br><span class="line">children=list.children</span><br></pre></td></tr></table></figure><p>(注意，data中必须包含同名的对象）</p><p>3、数组的浅拷贝<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> d=[1,2,3]</span><br><span class="line"><span class="built_in">let</span> arr=[...data,5,6]</span><br><span class="line">(...扩展符号）</span><br></pre></td></tr></table></figure></p><p>4、数组的解构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> [a,b,c]=[1,2,3]</span><br><span class="line">console.log(a,b,c)</span><br><span class="line">打印:1,2,3</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1、es6的数组实例的 entries()，是键值对的遍历&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span c
       
     
     </summary>

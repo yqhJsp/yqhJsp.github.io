@@ -144,6 +144,23 @@ hexo d   //部署到本地
 
 1.在github存放我们博客静态网页文件的仓库里另建分支brach，单独用于存放源文件。
 
+(1)建立分支branch,切换到分支
+(2)clone你的项目到你的Hexo目录下。例如我的是执行下面的命令：
+```bash
+git clone https://github.com/yqhJsp/yqhJsp.github.io.git
+```
+(3)进入该分支,把源码coby到clone的项目里,然后提交
+```bash
+git remote add origin https://github.com/yqhJsp/yqhJsp.github.io.git
+
+git add .
+
+git commit -m "hexo博客的源文件"
+
+git push
+```
+
+
 2.将本地博客文件存放在码云上。
 
 这些都是关于git的操作，所以这里不用细说了。单对于这两种方法来说，我更倾向于第二种。因为毕竟这些都是我们搭建个人博客的源文件，将来还要在网站上发表文章，很多数据都在这里。使用码云我们可以创建私有仓库，将这些源文件私有存放更好一些，而且源文件和静态博客网页文件分开存放也避免使用分支频繁切换。

@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: yqhJsp的个人博客
-subtitle: ### 记录技术上的点点积极 ###
-description: 一个热爱技术、安静、美腻的girl!!!
+title: yqhJsp
+subtitle: Stay Hungry, Stay Foolish
+description: "yqhJsp个人站，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面"
 keywords: javascript ajax vue html css
 author: yqh
-language: 
+language: zh-Hans
 timezone:
 
 # URL
@@ -27,6 +27,8 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+- README.md
+- CNAME
 
 # Writing
 new_post_name: :title.md # File name of new posts

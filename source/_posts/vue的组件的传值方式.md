@@ -3,7 +3,7 @@ title: vue的组件的传值方式
 date: 2019-02-01 15:59:48
 tags:
 ---
-### 1、子组件向父组件传值
+### 1、父组件向子组件传值
 (1)父组件通过props传值
 ```bash
 <gdp-analy :params="params":rsEcoConstruct="permiseMixin.rsEcoConstruct" ref="gdpAnaly"></gdp-analy>
@@ -48,9 +48,26 @@ this.$nextTick(() => {
 this.$refs.childrenOne.init()	
 ])
 ```
+### 3、子组件向父组件传值
 
+ (1)子组件使用事件派发方式,父组件监听事件
+ ```bash
+ 子组件中:
+ this.$emit('getData',data)
+ 父组件中:
+ <child @getData="getData"></child>
+ getData(data}{
+ this.datas=data
+ }
+ ```
+ (2)在父组件的wacth深层监听子组件的属性和数据
+ ```bash
+watch{
+ this.$refs.ech1.reaData=data
+}
+ ```
 
-### 三、vue的兄弟组件件的通信
+### 4、vue的兄弟组件的通信
 （1）eventBus(vue2.0s版本才有)
 
 ```bash

@@ -255,6 +255,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/es6的let和const声明/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/06/es6的let和const声明/" itemprop="url">es6的let和const声明</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T13:51:20+08:00">
+                2019-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h4><p>1、let声明在所在的代码块内有效，也就是有块级作用域作用；</p>
+<p>2、let声明的变量一定要在声明后才能调用，不然会报错；</p>
+<p>3、暂时性死区，只要在块级作用域使用let声明，那么声明的该变量就绑定了该区域。就算全局有同名的变量，但是由于区域内使用了let 命令，则该局部变量绑定了这个块级作用域，所以在let声明前赋值给该变量会报错；</p>
+<p>4、不允许重复声明，let不允许在同一个作用域重复声明同一个变量，否则会报错；</p>
+<p>5、var声明会变量提升的，内部的声明同名的变量，在调用函数时会污染外部的全局变量；</p>
+<h4 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h4><p>1、const声明一个只读常量。一旦声明，常量的值就不能改变。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const a=10;</span><br><span class="line">a=16;</span><br><span class="line">//这时候会报错：TypeError: Assignment to constant variable.</span><br></pre></td></tr></table></figure></p>
+<p>2、const声明的变量不能改变值，说明一旦声明变量，就必须立即初始化。</p>
+<p>3、const的作用于与let声明相同，只有在声明所在的块作用于内有效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  const max=5;</span><br><span class="line">&#125;</span><br><span class="line">max // Uncaught ReferenceError: MAX is not defined</span><br></pre></td></tr></table></figure></p>
+<p>4、const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  console.log(MAX); // ReferenceError</span><br><span class="line">  const MAX = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>5、const声明的常量，也与let一样不可重复声明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var message = <span class="string">"Hello!"</span>;</span><br><span class="line"><span class="built_in">let</span> age = 25;</span><br><span class="line"></span><br><span class="line">// 以下两行都会报错</span><br><span class="line">const message = <span class="string">"Goodbye!"</span>;</span><br><span class="line">const age = 30;</span><br></pre></td></tr></table></figure></p>
+<p>####　注意的事项:<br>(1)我们常说let和const声明的变量不能改变值,其实这个说法并不是说变量的值不得改动,而是变量指向的那个内存地址所保存的数据不得改动.对于简单的数据(数值、字符串、布尔值)，值就保存在变量指向的那个内存地址，因此等同于常量。但是对于复合型的数据（主要是对象和数组），变量指向的内存地址，保存的只是个指向实际数据的指针，const只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它的指向的数据结构是不是可变，就完全控制不住了。因此，将一个对象声明为常量必须非常小心。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const foo=&#123;&#125;;</span><br><span class="line">//为foo添加一个属性，可以成功</span><br><span class="line">foo.name=<span class="string">'xiaohua'</span>;</span><br><span class="line"></span><br><span class="line">//将foo指向另一个对象，就会报错</span><br><span class="line">foo=&#123;&#125;;// TypeError: <span class="string">"foo"</span> is <span class="built_in">read</span>-only</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/搭建vue-app的开发环境以及打包app发布/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -922,260 +1052,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/es6的常用函数/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yqh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yqhJsp">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/01/es6的常用函数/" itemprop="url">es6的常用函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
-                2019-02-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、es6的数组实例的 entries()，是键值对的遍历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [index, elem] of [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123;</span><br><span class="line">  console.log(index, elem);</span><br><span class="line">&#125;</span><br><span class="line">// 0 <span class="string">"a"</span></span><br><span class="line">// 1 <span class="string">"b"</span></span><br></pre></td></tr></table></figure></p>
-<p>2、对象的解构</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123;list,children&#125;=data</span><br><span class="line">list=data.list</span><br><span class="line">children=list.children</span><br></pre></td></tr></table></figure>
-<p>(注意，data中必须包含同名的对象）</p>
-<p>3、数组的浅拷贝<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> d=[1,2,3]</span><br><span class="line"><span class="built_in">let</span> arr=[...data,5,6]</span><br><span class="line">(...扩展符号）</span><br></pre></td></tr></table></figure></p>
-<p>4、数组的解构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> [a,b,c]=[1,2,3]</span><br><span class="line">console.log(a,b,c)</span><br><span class="line">打印:1,2,3</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yqh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yqhJsp">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/01/javascript的常用截取字符串的函数/" itemprop="url">javascript的常用截取字符串的函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
-                2019-02-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p>
-<p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p>
-<p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p>
-<h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p>
-<p>其函数形式为：int ff(void)const;</p>
-<p>(2)const修饰函数的返回值，用于返回常量；</p>
-<p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p>
-<p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p>
-<p>int* const i=;  代表指针i是常量，所指的内容可以修改</p>
-<p>3、unshift倒叙排序<br>4、replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串。。为了帮助大家更好的理解，下面举个简单例子说明一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"中文 - 标题"</span>.replace(/[\u4e00-\u9fa5]+\s+\-\s+/,<span class="string">''</span>); </span><br><span class="line"></span><br><span class="line">console.log(s)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/node连接数据库的操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1395,12 +1271,14 @@
       
         
           
-            <h3 id="1、子组件向父组件传值"><a href="#1、子组件向父组件传值" class="headerlink" title="1、子组件向父组件传值"></a>1、子组件向父组件传值</h3><p>(1)父组件通过props传值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;gdp-analy :params=<span class="string">"params"</span>:rsEcoConstruct=<span class="string">"permiseMixin.rsEcoConstruct"</span> ref=<span class="string">"gdpAnaly"</span>&gt;&lt;/gdp-analy&gt;</span><br></pre></td></tr></table></figure></p>
+            <h3 id="1、父组件向子组件传值"><a href="#1、父组件向子组件传值" class="headerlink" title="1、父组件向子组件传值"></a>1、父组件向子组件传值</h3><p>(1)父组件通过props传值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;gdp-analy :params=<span class="string">"params"</span>:rsEcoConstruct=<span class="string">"permiseMixin.rsEcoConstruct"</span> ref=<span class="string">"gdpAnaly"</span>&gt;&lt;/gdp-analy&gt;</span><br></pre></td></tr></table></figure></p>
 <p>(2)子组件接收父组件的参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">name: <span class="string">'fundTrade'</span>,</span><br><span class="line">components: &#123;&#125;,</span><br><span class="line">props: &#123;</span><br><span class="line">	params: Object,</span><br><span class="line">	rsEcoConstruct: &#123;</span><br><span class="line">			<span class="built_in">type</span>: String,</span><br><span class="line">			default: <span class="string">'false'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><a href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）" class="headerlink" title="2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）"></a>2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</h3><h3 id="二、父组件的事件触发响应子组件的请求"><a href="#二、父组件的事件触发响应子组件的请求" class="headerlink" title="二、父组件的事件触发响应子组件的请求"></a>二、父组件的事件触发响应子组件的请求</h3><p>(1)在子组件添加事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">pChangeType</span></span>() &#123;</span><br><span class="line">this.params.countType = this.<span class="variable">$parent</span>.countType</span><br><span class="line">this.getEch1()</span><br><span class="line">this.getTable1()</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
 <p>(2)在父组件的点击事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">changeData</span></span>()&#123;</span><br><span class="line">(1)//直接用<span class="variable">$parent</span>.xxx</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.pChangeType()</span><br></pre></td></tr></table></figure></p>
 <p>注意：用props传值,避免时间钩子问题，导致父组件还没渲染完，拿不到值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$nextTick</span>(() =&gt; &#123;</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.init()	</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、vue的兄弟组件的通信"><a href="#三、vue的兄弟组件的通信" class="headerlink" title="三、vue的兄弟组件的通信"></a>三、vue的兄弟组件的通信</h3><p>（1）eventBus(vue2.0s版本才有)</p>
+<h3 id="3、子组件向父组件传值"><a href="#3、子组件向父组件传值" class="headerlink" title="3、子组件向父组件传值"></a>3、子组件向父组件传值</h3><p> (1)子组件使用事件派发方式,父组件监听事件<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">子组件中:</span><br><span class="line">this.<span class="variable">$emit</span>(<span class="string">'getData'</span>,data)</span><br><span class="line">父组件中:</span><br><span class="line">&lt;child @getData=<span class="string">"getData"</span>&gt;&lt;/child&gt;</span><br><span class="line">getData(data&#125;&#123;</span><br><span class="line">this.datas=data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> (2)在父组件的wacth深层监听子组件的属性和数据<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">watch&#123;</span><br><span class="line"> this.<span class="variable">$refs</span>.ech1.reaData=data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、vue的兄弟组件的通信"><a href="#4、vue的兄弟组件的通信" class="headerlink" title="4、vue的兄弟组件的通信"></a>4、vue的兄弟组件的通信</h3><p>（1）eventBus(vue2.0s版本才有)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">步骤1：新建一个eventBus的js</span><br><span class="line">import Vue from <span class="string">'vue'</span>;</span><br><span class="line"><span class="built_in">export</span> default new Vue();</span><br><span class="line"></span><br><span class="line">在要使用eventBus的地方导入import Bus from <span class="string">'@/assets/js/eventBus'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤2：在要派发参数或事件的组件中用<span class="variable">$emit</span>绑定派发事件</span><br><span class="line">html:&lt;a class=<span class="string">"font-blue"</span> href=<span class="string">"javascript:;"</span> @click=<span class="string">"goCheck(item,0)"</span>&gt;查看&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">js:</span><br><span class="line">goCheck(item, index) &#123;</span><br><span class="line">Bus.<span class="variable">$emit</span>(<span class="string">'business-model-check'</span>, &#123; item, index &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤3：在兄弟组件中用<span class="variable">$on</span>监听是否有该事件</span><br><span class="line"><span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">this.init()</span><br><span class="line">Bus.<span class="variable">$on</span>(<span class="string">'business-model-check'</span>, params =&gt; &#123;</span><br><span class="line">this.getDetail(params)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
@@ -1452,7 +1330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/vue的混合注入mixins/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/javascript的常用截取字符串的函数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yqh">
@@ -1471,7 +1349,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/01/vue的混合注入mixins/" itemprop="url">vue的混合注入mixins</a></h1>
+                <a class="post-title-link" href="/2019/02/01/javascript的常用截取字符串的函数/" itemprop="url">javascript的常用截取字符串的函数</a></h1>
         
 
         <div class="post-meta">
@@ -1483,7 +1361,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T14:32:09+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
                 2019-02-01
               </time>
             
@@ -1523,11 +1401,141 @@
       
         
           
-            <h3 id="vue的混合注入mixins的相关理解和使用"><a href="#vue的混合注入mixins的相关理解和使用" class="headerlink" title="vue的混合注入mixins的相关理解和使用"></a>vue的混合注入mixins的相关理解和使用</h3><p>1、mixins 选项接受一个混入对象的数组；</p>
-<p>2、这些混入实例对象可以像正常的实例对象一样包含选项，他们将在 Vue.extend() 里最终选择使用相同的选项合并逻辑合并。</p>
-<p>3、如果混入包含一个钩子而创建组件本身也有一个，那么这两个函数会同时被调用；</p>
-<p>4、Mixin 钩子按照传入顺序依次调用，并在调用组件自身的钩子之前被调用</p>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">子组件中导入</span><br><span class="line">import glMixin from <span class="string">'@/assets/js/global-mixin'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">	mixins: [glMixin, pageMixin]</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="substr-、substring-、slice的用法"><a href="#substr-、substring-、slice的用法" class="headerlink" title="substr 、substring 、slice的用法"></a>substr 、substring 、slice的用法</h3><p>(1)substr获取从指定位置开始到指定字符数的字符;</p>
+<p>(2)substring返回一个从指定开始的索引到结束的索引的字符串;</p>
+<p>(3)slice：不改变原字符串，提取指定的字符串的一部分，返回一个新的字符串。</p>
+<h3 id="1、slice去除指定位置的字符串或新增"><a href="#1、slice去除指定位置的字符串或新增" class="headerlink" title="1、slice去除指定位置的字符串或新增"></a>1、slice去除指定位置的字符串或新增</h3><h3 id="2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针"><a href="#2、给”指针传递”的函数返回值加const-则返回值不能被直接修改-且该返回值只能被赋值给加const修饰的同类型指针" class="headerlink" title="2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针"></a>2、给”指针传递”的函数返回值加const,则返回值不能被直接修改,且该返回值只能被赋值给加const修饰的同类型指针</h3><p>(1)const用于修饰函数时，一般是const修饰类的成员函数（函数定义体），表示在函数体中成员变量不能改变；</p>
+<p>其函数形式为：int ff(void)const;</p>
+<p>(2)const修饰函数的返回值，用于返回常量；</p>
+<p>如const int ff(); //返回的是常量,所以必须这么调用 const int a=ff();</p>
+<p>(3)const int* i=0;  代表i是常量，里面的值不能够变</p>
+<p>int* const i=;  代表指针i是常量，所指的内容可以修改</p>
+<p>3、unshift倒叙排序<br>4、replace方法的语法是：stringObj.replace(rgExp, replaceText) 其中stringObj是字符串(string)，reExp可以是正则表达式对象(RegExp)也可以是字符串(string)，replaceText是替代查找到的字符串。。为了帮助大家更好的理解，下面举个简单例子说明一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">"中文 - 标题"</span>.replace(/[\u4e00-\u9fa5]+\s+\-\s+/,<span class="string">''</span>); </span><br><span class="line"></span><br><span class="line">console.log(s)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/es6的常用函数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yqh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yqhJsp">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/01/es6的常用函数/" itemprop="url">es6的常用函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
+                2019-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、es6的数组实例的 entries()，是键值对的遍历<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [index, elem] of [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123;</span><br><span class="line">  console.log(index, elem);</span><br><span class="line">&#125;</span><br><span class="line">// 0 <span class="string">"a"</span></span><br><span class="line">// 1 <span class="string">"b"</span></span><br></pre></td></tr></table></figure></p>
+<p>2、对象的解构</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123;list,children&#125;=data</span><br><span class="line">list=data.list</span><br><span class="line">children=list.children</span><br></pre></td></tr></table></figure>
+<p>(注意，data中必须包含同名的对象）</p>
+<p>3、数组的浅拷贝<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> d=[1,2,3]</span><br><span class="line"><span class="built_in">let</span> arr=[...data,5,6]</span><br><span class="line">(...扩展符号）</span><br></pre></td></tr></table></figure></p>
+<p>4、数组的解构<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> [a,b,c]=[1,2,3]</span><br><span class="line">console.log(a,b,c)</span><br><span class="line">打印:1,2,3</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1613,7 +1621,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

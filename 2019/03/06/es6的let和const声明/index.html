@@ -81,20 +81,18 @@
 
 
 
-<meta name="description" content="node连接数据库的操作提：自动安装的mysql不在/usr/bin目录下，所以需要重新设置环境变量 才可以在终端Yvonne目录下启动mysql  启动数据库 cmd: mysql -u root -p  //本地数据库 打开设置里的目录   1）新建数据库  mysql&amp;gt; show databases;结果：   2 进入数据库）mysql&amp;gt; use bh 3 进入表）mysql&amp;">
+<meta name="description" content="let声明1、let声明在所在的代码块内有效，也就是有块级作用域作用； 2、let声明的变量一定要在声明后才能调用，不然会报错； 3、暂时性死区，只要在块级作用域使用let声明，那么声明的该变量就绑定了该区域。就算全局有同名的变量，但是由于区域内使用了let 命令，则该局部变量绑定了这个块级作用域，所以在let声明前赋值给该变量会报错； 4、不允许重复声明，let不允许在同一个作用域重复声明同一个">
 <meta name="keywords" content="javascript ajax vue html css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node连接数据库的操作">
-<meta property="og:url" content="http://yoursite.com/2019/02/01/node连接数据库的操作/index.html">
+<meta property="og:title" content="es6的let和const声明">
+<meta property="og:url" content="http://yoursite.com/2019/03/06/es6的let和const声明/index.html">
 <meta property="og:site_name" content="yqhJsp">
-<meta property="og:description" content="node连接数据库的操作提：自动安装的mysql不在/usr/bin目录下，所以需要重新设置环境变量 才可以在终端Yvonne目录下启动mysql  启动数据库 cmd: mysql -u root -p  //本地数据库 打开设置里的目录   1）新建数据库  mysql&amp;gt; show databases;结果：   2 进入数据库）mysql&amp;gt; use bh 3 进入表）mysql&amp;">
+<meta property="og:description" content="let声明1、let声明在所在的代码块内有效，也就是有块级作用域作用； 2、let声明的变量一定要在声明后才能调用，不然会报错； 3、暂时性死区，只要在块级作用域使用let声明，那么声明的该变量就绑定了该区域。就算全局有同名的变量，但是由于区域内使用了let 命令，则该局部变量绑定了这个块级作用域，所以在let声明前赋值给该变量会报错； 4、不允许重复声明，let不允许在同一个作用域重复声明同一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/02/01/node连接数据库的操作/node.png">
-<meta property="og:updated_time" content="2019-02-01T09:08:10.414Z">
+<meta property="og:updated_time" content="2019-03-06T06:15:37.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node连接数据库的操作">
-<meta name="twitter:description" content="node连接数据库的操作提：自动安装的mysql不在/usr/bin目录下，所以需要重新设置环境变量 才可以在终端Yvonne目录下启动mysql  启动数据库 cmd: mysql -u root -p  //本地数据库 打开设置里的目录   1）新建数据库  mysql&amp;gt; show databases;结果：   2 进入数据库）mysql&amp;gt; use bh 3 进入表）mysql&amp;">
-<meta name="twitter:image" content="http://yoursite.com/2019/02/01/node连接数据库的操作/node.png">
+<meta name="twitter:title" content="es6的let和const声明">
+<meta name="twitter:description" content="let声明1、let声明在所在的代码块内有效，也就是有块级作用域作用； 2、let声明的变量一定要在声明后才能调用，不然会报错； 3、暂时性死区，只要在块级作用域使用let声明，那么声明的该变量就绑定了该区域。就算全局有同名的变量，但是由于区域内使用了let 命令，则该局部变量绑定了这个块级作用域，所以在let声明前赋值给该变量会报错； 4、不允许重复声明，let不允许在同一个作用域重复声明同一个">
 
 
 
@@ -124,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/01/node连接数据库的操作/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/06/es6的let和const声明/">
 
 
 
 
 
-  <title>node连接数据库的操作 | yqhJsp</title>
+  <title>es6的let和const声明 | yqhJsp</title>
   
 
 
@@ -257,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/01/node连接数据库的操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/es6的let和const声明/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yqh">
@@ -274,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">node连接数据库的操作</h1>
+          <h1 class="post-title" itemprop="name headline">es6的let和const声明</h1>
         
 
         <div class="post-meta">
@@ -286,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-01T15:59:48+08:00">
-                2019-02-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T13:51:20+08:00">
+                2019-03-06
               </time>
             
 
@@ -324,35 +322,17 @@
       
 
       
-        <h2 id="node连接数据库的操作"><a href="#node连接数据库的操作" class="headerlink" title="node连接数据库的操作"></a>node连接数据库的操作</h2><p>提：自动安装的mysql不在/usr/bin目录下，所以需要重新设置环境变量 才可以在终端Yvonne目录下启动mysql</p>
-<ul>
-<li>启动数据库 cmd: mysql -u root -p  //本地数据库</li>
-<li>打开设置里的目录</li>
-</ul>
-<ul>
-<li>1）新建数据库</li>
-</ul>
-<p>mysql&gt; show databases;<br>结果：</p>
-<p><img src="/2019/02/01/node连接数据库的操作/node.png" alt="示例图片" title="示例图片"></p>
-<ul>
-<li>2 进入数据库）mysql&gt; use bh</li>
-<li>3 进入表）mysql&gt; show tables;</li>
-<li>4 新建表)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE `blogInfo` (</span><br><span class="line">    -&gt;   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT <span class="string">'主键ID值'</span>,</span><br><span class="line">    -&gt;   `status` int(11) NOT NULL DEFAULT <span class="string">'0'</span> COMMENT <span class="string">'博文状态, 0：有效  1：停止   2：删除'</span>,</span><br><span class="line">    -&gt;   `contentSource` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'博文内容'</span>,</span><br><span class="line">    -&gt;   `blogId` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'博文ID'</span>,</span><br><span class="line">    -&gt;   `blogName` varchar(255) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'博文标题'</span>,</span><br><span class="line">    -&gt;   `blogParams` varchar(1024) NOT NULL DEFAULT <span class="string">''</span> COMMENT <span class="string">'参数'</span>,</span><br><span class="line">    -&gt;   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>,</span><br><span class="line">    -&gt;   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'更新时间'</span>,</span><br><span class="line">    -&gt;   PRIMARY KEY (`id`)</span><br><span class="line">    -&gt; ) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line">* 5 show表）</span><br><span class="line">mysql&gt; show tables;</span><br></pre></td></tr></table></figure>
-<p>结果：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+-------------------+</span><br><span class="line">| Tables_in_bh      |</span><br><span class="line">+-------------------+</span><br><span class="line">| blogInfo |</span><br><span class="line">+-------------------+</span><br></pre></td></tr></table></figure></p>
-<h3 id="Egg-node项目框架"><a href="#Egg-node项目框架" class="headerlink" title="Egg node项目框架"></a>Egg node项目框架</h3><p>2.后端sequelize连接数据库</p>
-<p>1）关联数据库</p>
-<pre><code>var sequelize = new Sequelize(&apos;database&apos;, &apos;username&apos;, &apos;password&apos;, {…
-</code></pre><p>2）关联模型</p>
-<pre><code>const Project = sequelize.define(&apos;project&apos;, {
-  title: Sequelize.STRING,//定义字段类型
-  description: Sequelize.TEXT
-})
-
-要定义模型和表之间的映射，请使用define方法。
-</code></pre><p>3）操作数据库<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app/controller/operaterLog</span><br><span class="line">       </span><br><span class="line">Project.findOne()	</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>）调用的接口app/public/src/service</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>）页面app/public/page/operaterlog</span><br><span class="line">	Async函数返回的是一个promise对象</span><br><span class="line">	promise函数 需要用resolve接收返回结果</span><br><span class="line">	注意箭头函数不绑定<span class="keyword">this</span></span><br></pre></td></tr></table></figure></p>
-<p>Ssdb是当数据库挂了数据会自动先保存到本地</p>
+        <h4 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h4><p>1、let声明在所在的代码块内有效，也就是有块级作用域作用；</p>
+<p>2、let声明的变量一定要在声明后才能调用，不然会报错；</p>
+<p>3、暂时性死区，只要在块级作用域使用let声明，那么声明的该变量就绑定了该区域。就算全局有同名的变量，但是由于区域内使用了let 命令，则该局部变量绑定了这个块级作用域，所以在let声明前赋值给该变量会报错；</p>
+<p>4、不允许重复声明，let不允许在同一个作用域重复声明同一个变量，否则会报错；</p>
+<p>5、var声明会变量提升的，内部的声明同名的变量，在调用函数时会污染外部的全局变量；</p>
+<h4 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h4><p>1、const声明一个只读常量。一旦声明，常量的值就不能改变。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const a=10;</span><br><span class="line">a=16;</span><br><span class="line">//这时候会报错：TypeError: Assignment to constant variable.</span><br></pre></td></tr></table></figure></p>
+<p>2、const声明的变量不能改变值，说明一旦声明变量，就必须立即初始化。</p>
+<p>3、const的作用于与let声明相同，只有在声明所在的块作用于内有效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  const max=5;</span><br><span class="line">&#125;</span><br><span class="line">max // Uncaught ReferenceError: MAX is not defined</span><br></pre></td></tr></table></figure></p>
+<p>4、const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  console.log(MAX); // ReferenceError</span><br><span class="line">  const MAX = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>5、const声明的常量，也与let一样不可重复声明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var message = <span class="string">"Hello!"</span>;</span><br><span class="line"><span class="built_in">let</span> age = 25;</span><br><span class="line"></span><br><span class="line">// 以下两行都会报错</span><br><span class="line">const message = <span class="string">"Goodbye!"</span>;</span><br><span class="line">const age = 30;</span><br></pre></td></tr></table></figure></p>
+<p>####　注意的事项:<br>(1)我们常说let和const声明的变量不能改变值,其实这个说法并不是说变量的值不得改动,而是变量指向的那个内存地址所保存的数据不得改动.对于简单的数据(数值、字符串、布尔值)，值就保存在变量指向的那个内存地址，因此等同于常量。但是对于复合型的数据（主要是对象和数组），变量指向的内存地址，保存的只是个指向实际数据的指针，const只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它的指向的数据结构是不是可变，就完全控制不住了。因此，将一个对象声明为常量必须非常小心。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const foo=&#123;&#125;;</span><br><span class="line">//为foo添加一个属性，可以成功</span><br><span class="line">foo.name=<span class="string">'xiaohua'</span>;</span><br><span class="line"></span><br><span class="line">//将foo指向另一个对象，就会报错</span><br><span class="line">foo=&#123;&#125;;// TypeError: <span class="string">"foo"</span> is <span class="built_in">read</span>-only</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -377,8 +357,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/01/vue的组件的传值方式/" rel="next" title="vue的组件的传值方式">
-                <i class="fa fa-chevron-left"></i> vue的组件的传值方式
+              <a href="/2019/02/25/搭建vue-app的开发环境以及打包app发布/" rel="next" title="搭建移动端vue-app项目">
+                <i class="fa fa-chevron-left"></i> 搭建移动端vue-app项目
               </a>
             
           </div>
@@ -386,10 +366,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/01/vue的路由跳转方式/" rel="prev" title="vue的路由跳转方式">
-                vue的路由跳转方式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,7 +486,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node连接数据库的操作"><span class="nav-number">1.</span> <span class="nav-text">node连接数据库的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Egg-node项目框架"><span class="nav-number">1.1.</span> <span class="nav-text">Egg node项目框架</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#let声明"><span class="nav-number">1.</span> <span class="nav-text">let声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const声明"><span class="nav-number">2.</span> <span class="nav-text">const声明</span></a></li></ol></div>
             
 
           </div>

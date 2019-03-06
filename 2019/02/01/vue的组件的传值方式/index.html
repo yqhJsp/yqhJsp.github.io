@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="1、子组件向父组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
+<meta name="description" content="1、父组件向子组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
 <meta name="keywords" content="javascript ajax vue html css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue的组件的传值方式">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/vue的组件的传值方式/index.html">
 <meta property="og:site_name" content="yqhJsp">
-<meta property="og:description" content="1、子组件向父组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
+<meta property="og:description" content="1、父组件向子组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-25T07:23:23.974Z">
+<meta property="og:updated_time" content="2019-03-06T05:49:35.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue的组件的传值方式">
-<meta name="twitter:description" content="1、子组件向父组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
+<meta name="twitter:description" content="1、父组件向子组件传值(1)父组件通过props传值1&amp;lt;gdp-analy :params=&quot;params&quot;:rsEcoConstruct=&quot;permiseMixin.rsEcoConstruct&quot; ref=&quot;gdpAnaly&quot;&amp;gt;&amp;lt;/gdp-analy&amp;gt; (2)子组件接收父组件的参数1234567891011export default &amp;#123;name: &apos;fundT">
 
 
 
@@ -322,12 +322,14 @@
       
 
       
-        <h3 id="1、子组件向父组件传值"><a href="#1、子组件向父组件传值" class="headerlink" title="1、子组件向父组件传值"></a>1、子组件向父组件传值</h3><p>(1)父组件通过props传值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;gdp-analy :params=<span class="string">"params"</span>:rsEcoConstruct=<span class="string">"permiseMixin.rsEcoConstruct"</span> ref=<span class="string">"gdpAnaly"</span>&gt;&lt;/gdp-analy&gt;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="1、父组件向子组件传值"><a href="#1、父组件向子组件传值" class="headerlink" title="1、父组件向子组件传值"></a>1、父组件向子组件传值</h3><p>(1)父组件通过props传值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;gdp-analy :params=<span class="string">"params"</span>:rsEcoConstruct=<span class="string">"permiseMixin.rsEcoConstruct"</span> ref=<span class="string">"gdpAnaly"</span>&gt;&lt;/gdp-analy&gt;</span><br></pre></td></tr></table></figure></p>
 <p>(2)子组件接收父组件的参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">name: <span class="string">'fundTrade'</span>,</span><br><span class="line">components: &#123;&#125;,</span><br><span class="line">props: &#123;</span><br><span class="line">	params: Object,</span><br><span class="line">	rsEcoConstruct: &#123;</span><br><span class="line">			<span class="built_in">type</span>: String,</span><br><span class="line">			default: <span class="string">'false'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><a href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）" class="headerlink" title="2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）"></a>2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</h3><h3 id="二、父组件的事件触发响应子组件的请求"><a href="#二、父组件的事件触发响应子组件的请求" class="headerlink" title="二、父组件的事件触发响应子组件的请求"></a>二、父组件的事件触发响应子组件的请求</h3><p>(1)在子组件添加事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">pChangeType</span></span>() &#123;</span><br><span class="line">this.params.countType = this.<span class="variable">$parent</span>.countType</span><br><span class="line">this.getEch1()</span><br><span class="line">this.getTable1()</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
 <p>(2)在父组件的点击事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">changeData</span></span>()&#123;</span><br><span class="line">(1)//直接用<span class="variable">$parent</span>.xxx</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.pChangeType()</span><br></pre></td></tr></table></figure></p>
 <p>注意：用props传值,避免时间钩子问题，导致父组件还没渲染完，拿不到值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$nextTick</span>(() =&gt; &#123;</span><br><span class="line">this.<span class="variable">$refs</span>.childrenOne.init()	</span><br><span class="line">])</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、vue的兄弟组件的通信"><a href="#三、vue的兄弟组件的通信" class="headerlink" title="三、vue的兄弟组件的通信"></a>三、vue的兄弟组件的通信</h3><p>（1）eventBus(vue2.0s版本才有)</p>
+<h3 id="3、子组件向父组件传值"><a href="#3、子组件向父组件传值" class="headerlink" title="3、子组件向父组件传值"></a>3、子组件向父组件传值</h3><p> (1)子组件使用事件派发方式,父组件监听事件<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">子组件中:</span><br><span class="line">this.<span class="variable">$emit</span>(<span class="string">'getData'</span>,data)</span><br><span class="line">父组件中:</span><br><span class="line">&lt;child @getData=<span class="string">"getData"</span>&gt;&lt;/child&gt;</span><br><span class="line">getData(data&#125;&#123;</span><br><span class="line">this.datas=data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> (2)在父组件的wacth深层监听子组件的属性和数据<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">watch&#123;</span><br><span class="line"> this.<span class="variable">$refs</span>.ech1.reaData=data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、vue的兄弟组件的通信"><a href="#4、vue的兄弟组件的通信" class="headerlink" title="4、vue的兄弟组件的通信"></a>4、vue的兄弟组件的通信</h3><p>（1）eventBus(vue2.0s版本才有)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">步骤1：新建一个eventBus的js</span><br><span class="line">import Vue from <span class="string">'vue'</span>;</span><br><span class="line"><span class="built_in">export</span> default new Vue();</span><br><span class="line"></span><br><span class="line">在要使用eventBus的地方导入import Bus from <span class="string">'@/assets/js/eventBus'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤2：在要派发参数或事件的组件中用<span class="variable">$emit</span>绑定派发事件</span><br><span class="line">html:&lt;a class=<span class="string">"font-blue"</span> href=<span class="string">"javascript:;"</span> @click=<span class="string">"goCheck(item,0)"</span>&gt;查看&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">js:</span><br><span class="line">goCheck(item, index) &#123;</span><br><span class="line">Bus.<span class="variable">$emit</span>(<span class="string">'business-model-check'</span>, &#123; item, index &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤3：在兄弟组件中用<span class="variable">$on</span>监听是否有该事件</span><br><span class="line"><span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">this.init()</span><br><span class="line">Bus.<span class="variable">$on</span>(<span class="string">'business-model-check'</span>, params =&gt; &#123;</span><br><span class="line">this.getDetail(params)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
@@ -355,8 +357,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/01/vue的混合注入mixins/" rel="next" title="vue的混合注入mixins">
-                <i class="fa fa-chevron-left"></i> vue的混合注入mixins
+              <a href="/2019/02/01/javascript的常用截取字符串的函数/" rel="next" title="javascript的常用截取字符串的函数">
+                <i class="fa fa-chevron-left"></i> javascript的常用截取字符串的函数
               </a>
             
           </div>
@@ -444,7 +446,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -488,7 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、子组件向父组件传值"><span class="nav-number">1.</span> <span class="nav-text">1、子组件向父组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><span class="nav-number">2.</span> <span class="nav-text">2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、父组件的事件触发响应子组件的请求"><span class="nav-number">3.</span> <span class="nav-text">二、父组件的事件触发响应子组件的请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、vue的兄弟组件的通信"><span class="nav-number">4.</span> <span class="nav-text">三、vue的兄弟组件的通信</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、父组件向子组件传值"><span class="nav-number">1.</span> <span class="nav-text">1、父组件向子组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、直接获取父级的值-parent-xxxx（局限性比较大，因为必须保证父级有该值）"><span class="nav-number">2.</span> <span class="nav-text">2、直接获取父级的值$parent.xxxx（局限性比较大，因为必须保证父级有该值）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、父组件的事件触发响应子组件的请求"><span class="nav-number">3.</span> <span class="nav-text">二、父组件的事件触发响应子组件的请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、子组件向父组件传值"><span class="nav-number">4.</span> <span class="nav-text">3、子组件向父组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、vue的兄弟组件的通信"><span class="nav-number">5.</span> <span class="nav-text">4、vue的兄弟组件的通信</span></a></li></ol></div>
             
 
           </div>
